@@ -14,23 +14,22 @@
 .container {width: 100%; height: 100%;}
 
 /* contents */
-.contents {width: 100%; max-width: 62rem; height: 100%; margin: 0 auto; background-color: var(--white); padding: 4rem 2rem; display: flex; flex-flow: column; row-gap: 10rem;}
+.contents {width: 100%; max-width: 62rem; height: 100%; margin: 0 auto; background-color: var(--white); padding: 4rem 2rem 6rem; display: flex; flex-flow: column; row-gap: 12rem;}
 
 /* opening */
 .opening {height: calc(100vh - 8rem); display: flex; flex-flow: column; row-gap: 3rem; align-items: center; justify-content: space-between;}
 .opening > h1 {text-align: center; font-size: 2.8rem; font-weight: 800;}
 .opening .img {width: 100%; height: 100%; background-color: #d9d9d9; background-repeat: no-repeat; background-size: cover; background-position: center;}
 .opening .info {display: flex; flex-flow: column; row-gap: 1.6rem; align-items: center;}
-.opening .info > h2 {text-align: center; font-size: 1.6rem; font-weight: 500;}
-.opening .info > p {text-align: center; font-size: 1.4rem; line-height: 2;}
+.opening .info > h2 {text-align: center; font-size: 1.8rem; font-weight: 500;}
+.opening .info > p {text-align: center; font-size: 1.6rem; line-height: 2;}
 
 /* introduce */
-.introduce > h2 {font-size: 2.8rem;}
-.introduce > p {text-align: center; font-size: 1.4rem; line-height: 2;}
+.introduce > p {text-align: center; font-size: 1.6rem; line-height: 2;}
 .introduce > ul {width: calc(100% - 2rem); display: flex; flex-flow: column; row-gap: 1.6rem; margin: 6rem auto 0; padding: 2rem 0; border-top: 1px solid var(--gray02); border-bottom: 1px solid var(--gray02);}
-.introduce > ul > li {text-align: center; display: flex; align-items: center; justify-content: center; column-gap: 1rem; font-size: 1.4rem;}
-.introduce > ul > li > p {font-size: 1.6rem;}
-.introduce > ul > li > h3 {font-size: 1.6rem; font-weight: 600;}
+.introduce > ul > li {text-align: center; display: flex; align-items: flex-end; justify-content: center; column-gap: 1.6rem; font-size: 1.6rem;}
+.introduce > ul > li > p {font-size: 1.8rem; font-weight: 500;}
+.introduce > ul > li > h3 {font-size: 1.8rem; font-weight: 600;}
 
 /* photo */
 .photo-wrap {width: 100vw; margin: 0 -2rem;}
@@ -40,23 +39,38 @@
 #map {width: 100vw; height: 28rem; margin: 0 -2rem; background-color: #d9d9d9;}
 
 .place {margin-top: 4rem;}
-.place > h3 {font-size: 1.6rem; font-weight: 500;}
+.place > h3 {font-size: 2rem; font-weight: 500;}
 .place > ul {margin-top: 3rem;}
-.place > ul > li {font-size: 1.4rem; line-height: 2; display: flex; align-items: center; justify-content: space-between;}
+.place > ul > li {font-size: 1.6rem; line-height: 2; display: flex; align-items: center; justify-content: space-between;}
 .place > ul > li > a {color: var(--gray03); text-decoration: underline; cursor: pointer;}
 .place > div {margin-top: 2rem; display: flex; align-items: center; column-gap: .8rem;}
 .place > div > button {width: calc((100% - 1.6rem) / 3);}
 
-.traffic {margin-top: 4rem; display: flex; flex-flow: column; row-gap: 3rem;}
-.traffic > li {display: flex; flex-flow: column; row-gap: .8rem;}
-.traffic > li > h4 {font-size: 1.4rem; font-weight: 500;}
-.traffic > li > p {font-size: 1.4rem; line-height: 1.8;}
+.traffic {margin-top: 6rem; display: flex; flex-flow: column; row-gap: 3rem;}
+.traffic > li {display: flex; flex-flow: column; row-gap: 1.6rem;}
+.traffic > li > h4 {font-size: 1.6rem; font-weight: 500;}
+.traffic > li > p {font-size: 1.6rem; line-height: 1.8;}
 
 /* contact */
 .contact {display: flex; flex-flow: column; row-gap: 1rem;}
 .contact > li {display: flex; align-items: center; justify-content: space-between;}
-.contact > li > p {font-size: 1.4rem; font-weight: 500;}
+.contact > li > p {font-size: 1.6rem; font-weight: 500;}
 .contact > li > div {display: flex; align-items: center; column-gap: .8rem;}
+.contact > li > div button {padding: 0 1.6rem;}
 
+/* account */
+.account {display: flex; flex-flow: column; row-gap: 4rem;}
+.account > li {display: flex; flex-flow: column; row-gap: 2rem;}
+.account > li > h3 {font-size: 1.6rem; font-weight: 500;}
+.account > li > ul {display: flex; flex-flow: column; row-gap: 1.6rem;}
+.account > li > ul > li {font-size: 1.6rem; display: flex; align-items: center; justify-content: space-between;}
+.account > li > ul > li > a {color: var(--gray03); text-decoration: underline; cursor: pointer;}
+.account > li > ul > li > button {width: 100%;}
 
+/* thanks */
+.thanks {text-align: center; font-size: 1.6rem; line-height: 2;}
 
+.copy {display: flex; align-items: center; column-gap: .8rem; margin-top: 4rem;}
+.copy button {width: calc((100% - .8rem) / 2);}
+
+.copyright {text-align: center; font-size: 1.4rem; color: var(--gray03); font-weight: 300;}
