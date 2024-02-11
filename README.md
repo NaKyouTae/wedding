@@ -1,5 +1,5 @@
 # wedding
-모바일 청첩장 - 부부용
+모바일 청첩장 - 부부용1
 
 # Getting Started with Create React App
 
