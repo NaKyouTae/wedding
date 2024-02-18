@@ -27,6 +27,14 @@ function App() {
         window.open(url)
     }
 
+    const onClickForKakao = () => {
+        Kakao.Navi.start({
+            name: '루이비스 웨딩 중구점',
+            x: 37.5601,
+            y: 126.9672,
+        })
+    }
+
     return (
         <div className="App">
             <div className="container">
