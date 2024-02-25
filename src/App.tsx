@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useEffect} from 'react';
 import './App.css';
 
 // Import the functions you need from the SDKs you need
@@ -6,6 +6,8 @@ import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+
+declare const Kakao: any;
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -23,17 +25,29 @@ function App() {
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
 
-    const onClick = (url: string) => {
+    const onClick = useCallback((url: string) => {
         window.open(url)
-    }
+    }, []);
 
-    const onClickForKakao = () => {
+    const onClickForKakao = useCallback(() => {
         Kakao.Navi.start({
             name: '루이비스 웨딩 중구점',
             x: 37.5601,
             y: 126.9672,
         })
-    }
+    }, [])
+
+    useEffect(() => {
+        console.log('KAKAO INIT !!', Kakao.isInitialized());
+
+        const initKakao = () => {
+            Kakao.init('5a6eb9e30f5c017444702a8e4e9afb70');
+        }
+
+        if (!Kakao.isInitialized()) {
+            initKakao();
+        }
+    }, [Kakao])
 
     return (
         <div className="App">
@@ -92,8 +106,8 @@ function App() {
                                 <button onClick={() => onClick('https://naver.me/IFjIouHj')}><i
                                     className="ic-navermap"></i>네이버지도
                                 </button>
-                                <button onClick={() => onClick('https://kko.to/-5BhcaMH1Z')}><i
-                                    className="ic-kakaonavi"></i>카카오내비
+                                <button onClick={onClickForKakao}><i
+                                    className="ic-kakaonavi"></i>카카오내비1
                                 </button>
                                 <button onClick={() => onClick('https://surl.tmobiapi.com/e5eb10bf')}><i
                                     className="ic-tmap"></i>티맵
