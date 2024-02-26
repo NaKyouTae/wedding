@@ -30,16 +30,18 @@ function App() {
     }, []);
 
     const onClickForKakao = useCallback(() => {
+        const y = 37.56057771021365
+        const x = 126.9673387591732
+
         Kakao.Navi.start({
             name: '루이비스 웨딩 중구점',
-            x: 37.5601,
-            y: 126.9672,
+            x,
+            y,
+            coordType: 'wgs84',
         })
     }, [])
 
     useEffect(() => {
-        console.log('KAKAO INIT !!', Kakao.isInitialized());
-
         const initKakao = () => {
             Kakao.init('5a6eb9e30f5c017444702a8e4e9afb70');
         }
@@ -107,7 +109,7 @@ function App() {
                                     className="ic-navermap"></i>네이버지도
                                 </button>
                                 <button onClick={onClickForKakao}><i
-                                    className="ic-kakaonavi"></i>카카오내비1
+                                    className="ic-kakaonavi"></i>카카오내비
                                 </button>
                                 <button onClick={() => onClick('https://surl.tmobiapi.com/e5eb10bf')}><i
                                     className="ic-tmap"></i>티맵
