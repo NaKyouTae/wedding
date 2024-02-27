@@ -1,11 +1,18 @@
 import React, {useCallback, useEffect} from 'react';
-import './App.css';
-
 // Import the functions you need from the SDKs you need
 import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 declare const Kakao: any;
 
@@ -41,6 +48,11 @@ function App() {
         })
     }, [])
 
+
+    useEffect(() => {
+        AOS.init();
+    })
+
     useEffect(() => {
         const initKakao = () => {
             Kakao.init('5a6eb9e30f5c017444702a8e4e9afb70');
@@ -64,23 +76,40 @@ function App() {
                         </div>
                     </div>
                     <div className="box">
-                        <h2 className="ico">🕊️</h2>
+                        <h2 className="ico" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">🕊️</h2>
                         <div className="introduce">
-                            <p>
+                            <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                                 아홉 번째 봄을 같이 맞이하는 어느 날<br/>저희 드디어 결혼합니다.<br/><br/>
                                 언제나처럼 평생의 친구이자 든든한 아군으로<br/>그리고 서로에게 유일한 사랑으로 머물겠습니다.<br/><br/>
                                 저희 두 사람의 새로운 시작에<br/>그동안 아껴주시던 소중한 여러분들을 초대합니다.<br/>눈부실 여정, 그 설레는 첫걸음을 함께 빛내주세요.
                             </p>
-                            <ul>
+                            <ul data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                                 <li><p>나 성 원 ・ 성 춘 희</p>의 장남<h3>규 태</h3></li>
                                 <li><p>최 해 철 ・ 이 현 정</p>의 장녀<h3>보 영</h3></li>
                             </ul>
                         </div>
                     </div>
                     <div className="box">
-                        <h2>photo</h2>
-                        <div className="photo-wrap">
-                            <div className="swiper photoSwiper">
+                        <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">photo</h2>
+                        <div className="photo-wrap" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                            <Swiper
+                                slidesPerView={'auto'}
+                                centeredSlides={true}
+                                spaceBetween={16}
+                                loop={true}
+                                className="photoSwiper"
+                            >
+                                <SwiperSlide>Slide 1</SwiperSlide>
+                                <SwiperSlide>Slide 2</SwiperSlide>
+                                <SwiperSlide>Slide 3</SwiperSlide>
+                                <SwiperSlide>Slide 4</SwiperSlide>
+                                <SwiperSlide>Slide 5</SwiperSlide>
+                                <SwiperSlide>Slide 6</SwiperSlide>
+                                <SwiperSlide>Slide 7</SwiperSlide>
+                                <SwiperSlide>Slide 8</SwiperSlide>
+                                <SwiperSlide>Slide 9</SwiperSlide>
+                            </Swiper>
+                            {/* <div className="swiper photoSwiper">
                                 <div className="swiper-wrapper">
                                     <div className="swiper-slide">Slide 1</div>
                                     <div className="swiper-slide">Slide 2</div>
@@ -92,13 +121,13 @@ function App() {
                                     <div className="swiper-slide">Slide 8</div>
                                     <div className="swiper-slide">Slide 9</div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className="box">
-                        <h2>location</h2>
-                        <div id="map"></div>
-                        <div className="place">
+                        <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">location</h2>
+                        <div id="map" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800"></div>
+                        <div className="place" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                             <h3>루이비스 웨딩 중구</h3>
                             <ul>
                                 <li><p>서울 중구 청파로 463 한국경제신문사</p><a>복사하기</a></li>
@@ -116,7 +145,7 @@ function App() {
                                 </button>
                             </div>
                         </div>
-                        <ul className="traffic">
+                        <ul className="traffic" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                             <li>
                                 <h4>🚗 주차 안내</h4>
                                 <p>건물 내 지하 주차장 이용 (2시간 무료 주차)</p>
@@ -137,8 +166,8 @@ function App() {
                         </ul>
                     </div>
                     <div className="box">
-                        <h2>contact</h2>
-                        <ul className="contact">
+                        <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">contact</h2>
+                        <ul className="contact" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                             <li>
                                 <p>🤵🏻 신랑 나규태</p>
                                 <div>
@@ -156,10 +185,10 @@ function App() {
                         </ul>
                     </div>
                     <div className="box">
-                        <h2 className="ico">🤍</h2>
-                        <ul className="account">
+                        <h2 className="ico" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">🤍</h2>
+                        <ul className="account" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                             <li>
-                                <h3>🤵🏻 신랑측 계좌번호</h3>
+                                <h3>🤵🏻 신랑 측 계좌번호</h3>
                                 <ul>
                                     <li><p>토스뱅크 1000-5055-8487 나규태</p><a>복사하기</a></li>
                                     <li>
@@ -168,7 +197,7 @@ function App() {
                                 </ul>
                             </li>
                             <li>
-                                <h3>👰🏻‍♀️ 신부측 계좌번호</h3>
+                                <h3>👰🏻‍♀️ 신부 측 계좌번호</h3>
                                 <ul>
                                     <li><p>토스뱅크 1000-2298-9148 최보영</p><a>복사하기</a></li>
                                     <li>
@@ -179,8 +208,60 @@ function App() {
                         </ul>
                     </div>
                     <div className="box">
-                        <p className="thanks">응원하고 축하해 주신 모든 분들께 감사드립니다.<br/>보내주신 마음 잊지 않고 행복하게 잘 살겠습니다.</p>
-                        <div className="copy">
+                        <h2>our day</h2>
+                        <div className="calendar">
+                            <ul className="week">
+                                <li>일</li>
+                                <li>월</li>
+                                <li>화</li>
+                                <li>수</li>
+                                <li>목</li>
+                                <li>금</li>
+                                <li>토</li>
+                            </ul>
+                            <ul className="day">
+                                <li className="prev"><p>28</p></li>
+                                <li className="prev"><p>29</p></li>
+                                <li className="prev"><p>30</p></li>
+                                <li><p>1</p></li>
+                                <li><p>2</p></li>
+                                <li><p>3</p></li>
+                                <li><p>4</p></li>
+                                <li><p>5</p></li>
+                                <li><p>6</p></li>
+                                <li><p>7</p></li>
+                                <li><p>8</p></li>
+                                <li><p>9</p></li>
+                                <li><p>10</p></li>
+                                <li><p>11</p></li>
+                                <li><p>12</p></li>
+                                <li><p>13</p></li>
+                                <li><p>14</p></li>
+                                <li><p>15</p></li>
+                                <li><p>16</p></li>
+                                <li><p>17</p></li>
+                                <li className="point"><p>18</p></li>
+                                <li><p>19</p></li>
+                                <li><p>20</p></li>
+                                <li><p>21</p></li>
+                                <li><p>22</p></li>
+                                <li><p>23</p></li>
+                                <li><p>24</p></li>
+                                <li><p>25</p></li>
+                                <li><p>26</p></li>
+                                <li><p>27</p></li>
+                                <li><p>28</p></li>
+                                <li><p>29</p></li>
+                                <li><p>30</p></li>
+                                <li><p>31</p></li>
+                                <li className="next"><p>1</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="box">
+                        <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">to my loved ones</h2>
+                        <p className="thanks" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">응원하고 축하해 주신 모든 분들께 감사드립니다.<br/>보내주신 마음 잊지 않고 행복하게 잘 살겠습니다.</p>
+                        <div className="copy" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                             <button>카카오톡 공유하기</button>
                             <button>링크 복사하기</button>
                         </div>
