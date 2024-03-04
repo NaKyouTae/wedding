@@ -84,6 +84,9 @@ function App() {
         <div className="App">
             <div className="container">
                 <div className="contents">
+                    <div className="toast">
+                        <p>클립보드에 복사되었습니다.</p>
+                    </div>
                     <div className="opening">
                         <h1>if(🤵🏻🤍👰🏻‍♀️) → marriage</h1>
                         <div className="img"></div>
