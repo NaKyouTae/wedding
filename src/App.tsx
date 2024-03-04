@@ -30,13 +30,13 @@ const firebaseConfig = {
 };
 
 function App() {
-    // const y = 37.56057771021365
-    // const x = 126.9673387591732
-
     const y = 37.5605777
     const x = 126.9673387
+    const naverMapAppUrl = `nmap://navigation?dlat=${y}&dlng=${x}4&dname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%9B%A8%EB%94%A9%20%EC%A4%91%EA%B5%AC%EC%A0%90&appname=com.example.myapp`
+    const tMapAppUrl = `tmap://route?goalx=${x}&goaly=${y}&goalname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%A4%91%EA%B5%AC%EC%A0%90`
 
     const onClick = useCallback((url: string) => {
+        console.log('url', url)
         window.open(url)
     }, []);
 
@@ -151,13 +151,13 @@ function App() {
                                 <li><p>T. 02 312 6800</p><a href='tel:023126800'>전화걸기</a></li>
                             </ul>
                             <div>
-                                <button onClick={() => onClick('https://naver.me/IFjIouHj')}><i
+                                <button onClick={() => onClick(naverMapAppUrl)}><i
                                     className="ic-navermap"></i>네이버지도
                                 </button>
                                 <button onClick={onClickForKakao}><i
                                     className="ic-kakaonavi"></i>카카오내비
                                 </button>
-                                <button onClick={() => onClick('https://surl.tmobiapi.com/e5eb10bf')}><i
+                                <button onClick={() => onClick(tMapAppUrl)}><i
                                     className="ic-tmap"></i>티맵
                                 </button>
                             </div>
