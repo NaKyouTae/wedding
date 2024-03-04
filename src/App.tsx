@@ -13,6 +13,7 @@ import 'swiper/css/pagination';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import showToast from "./components/Toast";
 
 declare const Kakao: any;
 declare const naver: any;
@@ -36,9 +37,13 @@ function App() {
     const tMapAppUrl = `tmap://route?goalx=${x}&goaly=${y}&goalname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%A4%91%EA%B5%AC%EC%A0%90`
 
     const onClick = useCallback((url: string) => {
-        console.log('url', url)
         window.open(url)
     }, []);
+
+    const onCopy = useCallback(async (text: string) => {
+        await navigator.clipboard.writeText(text);
+        showToast('클립보드에 복사되었어요.', 500)
+    }, [])
 
     const onClickForKakao = useCallback(() => {
         Kakao.Navi.start({
@@ -150,7 +155,7 @@ function App() {
                         <div className="place" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                             <h3>루이비스 웨딩 중구</h3>
                             <ul>
-                                <li><p>서울 중구 청파로 463 한국경제신문사</p><a>복사하기</a></li>
+                                <li><p>서울 중구 청파로 463 한국경제신문사</p><a onClick={() => onCopy('서울 중구 청파로 463')}>복사하기</a></li>
                                 <li><p>T. 02 312 6800</p><a href='tel:023126800'>전화걸기</a></li>
                             </ul>
                             <div>
@@ -210,7 +215,7 @@ function App() {
                             <li>
                                 <h3>🤵🏻 신랑 측 계좌번호</h3>
                                 <ul>
-                                    <li><p>토스뱅크 1000-5055-8487 나규태</p><a>복사하기</a></li>
+                                    <li><p>토스뱅크 1000-5055-8487 나규태</p><a onClick={() => onCopy('100050558487')}>복사하기</a></li>
                                     <li>
                                         <button onClick={() => onClick('https://qr.kakaopay.com/Ej8v5CUuT')}><i className="ic-kakaotalk"></i>카카오페이 송금 바로가기</button>
                                     </li>
@@ -219,7 +224,7 @@ function App() {
                             <li>
                                 <h3>👰🏻‍♀️ 신부 측 계좌번호</h3>
                                 <ul>
-                                    <li><p>토스뱅크 1000-2298-9148 최보영</p><a>복사하기</a></li>
+                                    <li><p>토스뱅크 1000-2298-9148 최보영</p><a onClick={() => onCopy('100022989148')}>복사하기</a></li>
                                     <li>
                                         <button onClick={() => onClick('https://qr.kakaopay.com/Ej7m6USjO')}><i className="ic-kakaotalk"></i>카카오페이 송금 바로가기</button>
                                     </li>
@@ -284,7 +289,7 @@ function App() {
                         <p className="thanks" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">응원하고 축하해 주신 모든 분들께 감사드립니다.<br/>보내주신 마음 잊지 않고 행복하게 잘 살겠습니다.</p>
                         <div className="copy" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                             <button>카카오톡 공유하기</button>
-                            <button>링크 복사하기</button>
+                            <button onClick={() => onCopy('https://저희결혼합니다.com')}>링크 복사하기</button>
                         </div>
                     </div>
                     <p className="copyright">만든 이. 나규태 최보영</p>
