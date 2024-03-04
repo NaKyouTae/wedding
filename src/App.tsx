@@ -225,8 +225,8 @@ function App() {
                         </ul>
                     </div>
                     <div className="box">
-                        <h2>our day</h2>
-                        <div className="calendar">
+                        <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">our day</h2>
+                        <div className="calendar" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                             <ul className="week">
                                 <li>일</li>
                                 <li>월</li>
@@ -274,6 +274,7 @@ function App() {
                                 <li className="next"><p>1</p></li>
                             </ul>
                         </div>
+                        <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">규태 ♡ 보영 진짜 부부 되기까지 <span>365일</span></p>
                     </div>
                     <div className="box">
                         <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">to my loved ones</h2>
@@ -283,7 +284,7 @@ function App() {
                             <button>링크 복사하기</button>
                         </div>
                     </div>
-                    <p className="copyright">copyright</p>
+                    <p className="copyright">만든 이. 나규태 최보영</p>
                 </div>
             </div>
         </div>
