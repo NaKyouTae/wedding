@@ -15,6 +15,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 declare const Kakao: any;
+declare const naver: any;
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -29,17 +30,17 @@ const firebaseConfig = {
 };
 
 function App() {
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+    // const y = 37.56057771021365
+    // const x = 126.9673387591732
+
+    const y = 37.5605777
+    const x = 126.9673387
 
     const onClick = useCallback((url: string) => {
         window.open(url)
     }, []);
 
     const onClickForKakao = useCallback(() => {
-        const y = 37.56057771021365
-        const x = 126.9673387591732
-
         Kakao.Navi.start({
             name: '루이비스 웨딩 중구점',
             x,
@@ -48,9 +49,11 @@ function App() {
         })
     }, [])
 
-
     useEffect(() => {
         AOS.init();
+
+        const app = initializeApp(firebaseConfig);
+        getAnalytics(app);
     })
 
     useEffect(() => {
@@ -62,6 +65,20 @@ function App() {
             initKakao();
         }
     }, [Kakao])
+
+    useEffect(() => {
+        const mapEl = document.getElementById('map')
+        const latlng = new naver.maps.LatLng(y, x)
+        const mapOptions = {
+            center: latlng,
+            zoom: 14
+        };
+        const map = new naver.maps.Map(mapEl, mapOptions);
+        new naver.maps.Marker({
+            position: latlng,
+            map: map
+        });
+    }, [])
 
     return (
         <div className="App">
