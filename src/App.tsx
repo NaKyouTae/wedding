@@ -100,7 +100,7 @@ function App() {
     }
 
     const sendKakaoTalk = (kakaoId: string) => {
-        
+
     }
 
     const sendSms = (phoneNumber: string) => {
@@ -280,7 +280,7 @@ function App() {
                                 <ul>
                                     <li><p>토스뱅크 1000-5055-8487 나규태</p><a onClick={() => onCopy('100050558487')}>복사하기</a></li>
                                     <li>
-                                        <button onClick={() => onClick('https://qr.kakaopay.com/Ej8v5CUuT')}><i className="ic-kakaotalk"></i>카카오페이 송금 바로가기</button>
+                                        <button onClick={() => onClick('https://link.kakaopay.com/_/gbCaAUM')}><i className="ic-kakaotalk"></i>카카오페이 송금 바로가기</button>
                                     </li>
                                 </ul>
                             </li>
@@ -289,7 +289,7 @@ function App() {
                                 <ul>
                                     <li><p>토스뱅크 1000-2298-9148 최보영</p><a onClick={() => onCopy('100022989148')}>복사하기</a></li>
                                     <li>
-                                        <button onClick={() => onClick('https://qr.kakaopay.com/Ej7m6USjO')}><i className="ic-kakaotalk"></i>카카오페이 송금 바로가기</button>
+                                        <button onClick={() => onClick('https://link.kakaopay.com/_/0C7aeoq')}><i className="ic-kakaotalk"></i>카카오페이 송금 바로가기</button>
                                     </li>
                                 </ul>
                             </li>
