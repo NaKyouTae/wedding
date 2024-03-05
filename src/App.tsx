@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 // Import the functions you need from the SDKs you need
 import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
@@ -13,6 +13,7 @@ import 'swiper/css/pagination';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import dayjs from "dayjs";
 
 declare const Kakao: any;
 declare const naver: any;
@@ -34,6 +35,9 @@ function App() {
     const x = 126.9673387
     const naverMapAppUrl = `nmap://navigation?dlat=${y}&dlng=${x}4&dname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%9B%A8%EB%94%A9%20%EC%A4%91%EA%B5%AC%EC%A0%90&appname=com.example.myapp`
     const tMapAppUrl = `tmap://route?goalx=${x}&goaly=${y}&goalname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%A4%91%EA%B5%AC%EC%A0%90`
+
+    const weddingDate = dayjs('2024-05-18 13:20');
+    const [remainingTime, setRemainingTime] = useState(getRemainingTime());
 
     const onClick = useCallback((url: string) => {
         window.open(url)
@@ -62,6 +66,48 @@ function App() {
             coordType: 'wgs84',
         })
     }, [])
+
+    const onShareKakao = useCallback(() => {
+        if (Kakao) {
+            Kakao.Share.sendDefault({
+                objectType: 'feed',
+                content: {
+                    title: '나규태 ♡ 최보영 결혼합니다.',
+                    imageUrl: 'https://naver.com', // 메인 이미지
+                    description: '5/18(토) 13:20 루이비스 중구',
+                    link: {
+                        mobileWebUrl: 'https://저희결혼합니다.com',
+                    },
+                },
+                buttons: [
+                    {
+                        title: '청첩장으로 이동',
+                        link: {
+                            mobileWebUrl: 'https://저희결혼합니다.com',
+                        },
+                    },
+                ],
+            });
+        }
+    }, [])
+
+    function getRemainingTime() {
+        const today = dayjs();
+        const remainingTime = weddingDate.diff(today);
+        const remainingDays = Math.floor(remainingTime / (24 * 60 * 60 * 1000));
+
+        return `${remainingDays}일`;
+    }
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setRemainingTime(getRemainingTime());
+        }, 1000);
+
+        return () => {
+            clearInterval(timer);
+        };
+    }, []);
 
     useEffect(() => {
         AOS.init();
@@ -291,13 +337,13 @@ function App() {
                                 <li className="next"><p>1</p></li>
                             </ul>
                         </div>
-                        <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">규태 ♡ 보영 진짜 부부 되기까지 <span>365일</span></p>
+                        <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">규태 ♡ 보영 진짜 부부 되기까지 <span>{remainingTime}</span></p>
                     </div>
                     <div className="box">
                         <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">to my loved ones</h2>
                         <p className="thanks" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">응원하고 축하해 주신 모든 분들께 감사드립니다.<br/>보내주신 마음 잊지 않고 행복하게 잘 살겠습니다.</p>
                         <div className="copy" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
-                            <button>카카오톡 공유하기</button>
+                            <button onClick={onShareKakao}>카카오톡 공유하기</button>
                             <button onClick={() => onCopy('https://저희결혼합니다.com')}>링크 복사하기</button>
                         </div>
                     </div>
