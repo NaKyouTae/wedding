@@ -99,6 +99,14 @@ function App() {
         return `${remainingDays}일`;
     }
 
+    const sendKakaoTalk = (kakaoId: string) => {
+        
+    }
+
+    const sendSms = (phoneNumber: string) => {
+        window.open(`sms:${phoneNumber}&body=`)
+    }
+
     useEffect(() => {
         const timer = setInterval(() => {
             setRemainingTime(getRemainingTime());
@@ -251,15 +259,15 @@ function App() {
                             <li>
                                 <p>🤵🏻 신랑 나규태</p>
                                 <div>
-                                    <button>문자</button>
-                                    <button>카카오톡</button>
+                                    <button onClick={() => sendSms('01091092682')}>문자</button>
+                                    <button onClick={() => sendKakaoTalk('qppk')}>카카오톡</button>
                                 </div>
                             </li>
                             <li>
                                 <p>👰🏻‍♀️ 신부 최보영</p>
                                 <div>
-                                    <button>문자</button>
-                                    <button>카카오톡</button>
+                                    <button onClick={() => sendSms('01085511423')}>문자</button>
+                                    <button onClick={() => sendKakaoTalk('qppk')}>카카오톡</button>
                                 </div>
                             </li>
                         </ul>
