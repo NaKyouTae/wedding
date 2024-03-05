@@ -13,7 +13,6 @@ import 'swiper/css/pagination';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import showToast from "./components/Toast";
 
 declare const Kakao: any;
 declare const naver: any;
@@ -42,7 +41,17 @@ function App() {
 
     const onCopy = useCallback(async (text: string) => {
         await navigator.clipboard.writeText(text);
-        showToast('클립보드에 복사되었어요.', 500)
+
+        const toast = document.getElementById('toast') as HTMLElement
+        const classList = toast.classList
+
+        if(!classList.contains('active')) {
+            toast.classList.add('active')
+        }
+
+        setTimeout(() => {
+            toast.classList.remove('active')
+        }, 1500)
     }, [])
 
     const onClickForKakao = useCallback(() => {
@@ -89,7 +98,7 @@ function App() {
         <div className="App">
             <div className="container">
                 <div className="contents">
-                    <div className="toast">
+                    <div id="toast" className="toast">
                         <p>클립보드에 복사되었습니다.</p>
                     </div>
                     <div className="opening">
