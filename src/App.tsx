@@ -15,6 +15,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import dayjs from "dayjs";
 
+// audio player
+import ReactAudioPlayer from 'react-audio-player';
+
 declare const Kakao: any;
 declare const naver: any;
 
@@ -235,21 +238,27 @@ function App() {
                         </div>
                         <ul className="traffic" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                             <li>
-                                <h4>🚗 주차 안내</h4>
+                                <h4>주차</h4>
                                 <p>건물 내 지하 주차장 이용 (2시간 무료 주차)</p>
                             </li>
                             <li>
-                                <h4>🚌 셔틀버스 안내</h4>
-                                <p>서울역 1・3번 출구 → 롯데마트(서부역) 앞 셔틀버스<br/>탑승 (10분 간격 상시 운행)</p>
+                                <h4>셔틀버스</h4>
+                                <p>서울역 1・3번 출구 → 롯데마트(서부역) 앞 셔틀버스 <br/>탑승 (10분 간격 상시 운행)</p>
                             </li>
                             <li>
-                                <h4>🚇 지하철 안내</h4>
+                                <h4>지하철</h4>
                                 <p>2호선 / 5호선 충정로역 4번 출구 하차 → 도보 3분</p>
                             </li>
                             <li>
-                                <h4>🚍 버스 안내</h4>
-                                <p>한국경제신문사・서소문역사공원 정류장 하차<br/>- 간선 : 370, 603<br/>- 지선 : 7011, 7013A, 7013B, 7017<br/>- 공항
-                                    : 6015</p>
+                                <h4>버스</h4>
+                                <div>
+                                    <p>한국경제신문사・서소문역사공원 정류장 하차</p>
+                                    <ul>
+                                        <li>간선 : 370, 603</li>
+                                        <li>지선 : 7011, 7013A, 7013B, 7017</li>
+                                        <li>공항 : 6015</li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -259,15 +268,15 @@ function App() {
                             <li>
                                 <p>🤵🏻 신랑 나규태</p>
                                 <div>
-                                    <button onClick={() => sendSms('01091092682')}>문자</button>
-                                    <button onClick={() => sendKakaoTalk('qppk')}>카카오톡</button>
+                                    <a onClick={() => sendSms('01091092682')}>문자 보내기</a>
+                                    <a href='tel:01091092682'>전화 걸기</a>
                                 </div>
                             </li>
                             <li>
                                 <p>👰🏻‍♀️ 신부 최보영</p>
                                 <div>
-                                    <button onClick={() => sendSms('01085511423')}>문자</button>
-                                    <button onClick={() => sendKakaoTalk('qppk')}>카카오톡</button>
+                                    <a onClick={() => sendSms('01085511423')}>문자 보내기</a>
+                                    <a href='tel:01085511423'>전화 걸기</a>
                                 </div>
                             </li>
                         </ul>
