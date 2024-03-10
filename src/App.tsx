@@ -189,11 +189,11 @@ function App() {
         }
 
         // 컴포넌트가 마운트될 때 resize 이벤트 등록
-        window.addEventListener('resize', setScreenSize);
+        // window.addEventListener('resize', setScreenSize);
 
         // 컴포넌트가 언마운트될 때 resize 이벤트 정리
         return () => {
-            window.removeEventListener('resize', setScreenSize);
+            // window.removeEventListener('resize', setScreenSize);
         };
     }, []);
 
