@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 // Import the functions you need from the SDKs you need
 import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
@@ -17,6 +17,7 @@ import dayjs from "dayjs";
 
 // audio player
 import ReactAudioPlayer from 'react-audio-player';
+import MyImage from './assets/img/album-img01.png';
 
 declare const Kakao: any;
 declare const naver: any;
@@ -40,7 +41,10 @@ function App() {
     const tMapAppUrl = `tmap://route?goalx=${x}&goaly=${y}&goalname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%A4%91%EA%B5%AC%EC%A0%90`
 
     const weddingDate = dayjs('2024-05-18 13:20');
-    const [remainingTime, setRemainingTime] = useState(getRemainingTime());
+    const [count, setCount] = useState(0)
+    const [startedCount, setStartedCount] = useState(false)
+
+    const targetRef = useRef(null);
 
     const onClick = useCallback((url: string) => {
         window.open(url)
@@ -94,31 +98,40 @@ function App() {
         }
     }, [])
 
-    function getRemainingTime() {
+    function getRemainingTime(): number {
         const today = dayjs();
         const remainingTime = weddingDate.diff(today);
         const remainingDays = Math.floor(remainingTime / (24 * 60 * 60 * 1000));
 
-        return `${remainingDays}일`;
+        return remainingDays;
     }
 
-    const sendKakaoTalk = (kakaoId: string) => {
-
+    const onCall = (phoneNumber: string) => {
+        window.open(`tel:${phoneNumber}`)
     }
 
     const sendSms = (phoneNumber: string) => {
         window.open(`sms:${phoneNumber}&body=`)
     }
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setRemainingTime(getRemainingTime());
-        }, 1000);
+    function easeOutExpo(t: number): number {
+        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
+    }
 
-        return () => {
-            clearInterval(timer);
-        };
-    }, []);
+    const countNum = (end: number, start = 0, duration = 2000) => {
+        const frameRate = 1000 / 60
+        const totalFrame = Math.round(duration / frameRate)
+
+        let currentNumber = start
+        const counter = setInterval(() => {
+            const progress = easeOutExpo(++currentNumber / totalFrame)
+            setCount(Math.round(end * progress))
+
+            if (progress === 1) {
+                clearInterval(counter)
+            }
+        }, frameRate)
+    }
 
     useEffect(() => {
         AOS.init();
@@ -136,6 +149,56 @@ function App() {
             initKakao();
         }
     }, [Kakao])
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const targetElement = targetRef.current as unknown as HTMLElement;
+            if (targetElement) {
+                const { top, bottom } = targetElement.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // 특정 영역에 도달하면 실행할 코드를 여기에 작성하세요
+                // if (top <= windowHeight && bottom >= 0 && !startedCount) {
+                //     console.log('cnt', startedCount)
+                //
+                //     countNum(endDate, 0, 3000)
+                //     setStartedCount(true)
+                // }
+
+                console.log('targetElement', targetElement.classList.contains('aos-animate'))
+
+
+                if (bottom <= (windowHeight + 10) || bottom <= (windowHeight - 10)) {
+
+                    console.log(count, bottom, windowHeight)
+                    const endDate = getRemainingTime()
+                    countNum(endDate, 0, 3000)
+                    setStartedCount(true)
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    useEffect(() => {
+        function setScreenSize() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        // 컴포넌트가 마운트될 때 resize 이벤트 등록
+        // window.addEventListener('resize', setScreenSize);
+
+        // 컴포넌트가 언마운트될 때 resize 이벤트 정리
+        return () => {
+            // window.removeEventListener('resize', setScreenSize);
+        };
+    }, []);
 
     useEffect(() => {
         const mapEl = document.getElementById('map')
@@ -160,7 +223,9 @@ function App() {
                     </div>
                     <div className="opening">
                         <h1>if(🤵🏻🤍👰🏻‍♀️) → marriage</h1>
-                        <div className="img"></div>
+                        <div className="img">
+                            <img src={MyImage} alt="이미지" />
+                        </div>
                         <div className="info">
                             <h2>나규태 그리고 최보영</h2>
                             <p>2024년 05월 18일 토요일 오후 1시 20분<br/>루이비스 웨딩 중구(단독홀)</p>
@@ -268,15 +333,15 @@ function App() {
                             <li>
                                 <p>🤵🏻 신랑 나규태</p>
                                 <div>
-                                    <a onClick={() => sendSms('01091092682')}>문자 보내기</a>
-                                    <a href='tel:01091092682'>전화 걸기</a>
+                                    <button onClick={() => sendSms('01091092682')}>문자</button>
+                                    <button onClick={() => onCall('01091092682')}>전화</button>
                                 </div>
                             </li>
                             <li>
                                 <p>👰🏻‍♀️ 신부 최보영</p>
                                 <div>
                                     <a onClick={() => sendSms('01085511423')}>문자 보내기</a>
-                                    <a href='tel:01085511423'>전화 걸기</a>
+                                    <a onClick={() => onCall('01085511423')}>전화 걸기</a>
                                 </div>
                             </li>
                         </ul>
@@ -354,7 +419,7 @@ function App() {
                                 <li className="next"><p>1</p></li>
                             </ul>
                         </div>
-                        <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">규태 ♡ 보영 진짜 부부 되기까지 <span>{remainingTime}</span></p>
+                        <p ref={targetRef} data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">규태 ♡ 보영 진짜 부부 되기까지 <span>{count}일</span></p>
                     </div>
                     <div className="box">
                         <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">to my loved ones</h2>
