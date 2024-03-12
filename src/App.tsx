@@ -217,6 +217,11 @@ function App() {
     return (
         <div className="App">
             <div className="container">
+                <ReactAudioPlayer
+                    src='./assets/mp3/Ordinary_Confession.mp3'
+                    autoPlay
+                    controls
+                />
                 <div className="contents">
                     <div id="toast" className="toast">
                         <p>클립보드에 복사되었습니다.</p>
@@ -287,7 +292,7 @@ function App() {
                             <h3>루이비스 웨딩 중구</h3>
                             <ul>
                                 <li><p>서울 중구 청파로 463 한국경제신문사</p><a onClick={() => onCopy('서울 중구 청파로 463')}>복사하기</a></li>
-                                <li><p>T. 02 312 6800</p><a href='tel:023126800'>전화걸기</a></li>
+                                <li><p>T. 02 312 6800</p><a onClick={() => onCall('023126800')}>전화걸기</a></li>
                             </ul>
                             <div>
                                 <button onClick={() => onClick(naverMapAppUrl)}><i
@@ -333,8 +338,8 @@ function App() {
                             <li>
                                 <p>🤵🏻 신랑 나규태</p>
                                 <div>
-                                    <button onClick={() => sendSms('01091092682')}>문자</button>
-                                    <button onClick={() => onCall('01091092682')}>전화</button>
+                                    <a onClick={() => sendSms('01091092682')}>문자 보내기</a>
+                                    <a onClick={() => onCall('01091092682')}>전화 걸기</a>
                                 </div>
                             </li>
                             <li>
