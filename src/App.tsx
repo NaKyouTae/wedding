@@ -31,16 +31,23 @@ const firebaseConfig = {
     appId: "1:497760462889:web:aa9a13d383045a13e19438",
     measurementId: "G-QMHW4W7YS1"
 };
+const app = initializeApp(firebaseConfig);
 
 function App() {
     const y = 37.5605777
     const x = 126.9673387
     const naverMapAppUrl = `nmap://navigation?dlat=${y}&dlng=${x}4&dname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%9B%A8%EB%94%A9%20%EC%A4%91%EA%B5%AC%EC%A0%90&appname=com.example.myapp`
     const tMapAppUrl = `tmap://route?goalx=${x}&goaly=${y}&goalname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%A4%91%EA%B5%AC%EC%A0%90`
-
+    const audioUrl = 'https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/Ordinary_Confession.mp3?alt=media&token=3a07d846-1c0d-4d9d-bd61-af2f39f48be6'
+    
     const weddingDate = dayjs('2024-05-18 13:20');
     const [count, setCount] = useState(0)
     const [startedCount, setStartedCount] = useState(false)
+
+    // 오디오 플레이어
+    const audioEle = new Audio(audioUrl);
+    const [audio] = useState<HTMLAudioElement>(audioEle);
+    const [isPlaying, setIsPlaying] = useState(false);
 
     const targetRef = useRef(null);
 
@@ -131,12 +138,27 @@ function App() {
         }, frameRate)
     }
 
+    const togglePlay = () => {
+        if(audio) {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                audio.volume = 0.3;
+                audio.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    };
+
+    const initAudio = () => {
+        togglePlay()
+    }
+
     useEffect(() => {
         AOS.init();
-
-        const app = initializeApp(firebaseConfig);
+        initAudio();
         getAnalytics(app);
-    })
+    }, [])
 
     useEffect(() => {
         const initKakao = () => {
@@ -237,20 +259,6 @@ function App() {
         `);
     }, []);
    
-    // 오디오 플레이어 
-    const audioUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-    const [audio] = useState(new Audio(audioUrl));
-    const [isPlaying, setIsPlaying] = useState(false);
-
-    const togglePlay = () => {
-        if (isPlaying) {
-            audio.pause();
-        } else {
-            audio.play();
-        }
-        setIsPlaying(!isPlaying);
-    };
-
     // 재생 정지 버튼 스타일
     const [muteBtnTop, setMuteBtnTop] = useState(2);
     const [topBtnBottom, setTopBtnBottom] = useState(-5.2);
@@ -297,7 +305,7 @@ function App() {
             <div className="container">
                 <div className="contents">
                     <button className="audio" style={{ top: `${muteBtnTop}rem` }} onClick={togglePlay}>
-                        {isPlaying ? <i className="ic-mute" /> : <i className="ic-unmute" />}
+                        {!isPlaying ? <i className="ic-mute" /> : <i className="ic-unmute" />}
                     </button>
                     <button className="top" style={{ bottom: `${topBtnBottom}rem`, transform: `rotate(${rotation}deg)` }} onClick={scrollToTop}>UP</button>
                     <div id="toast" className="toast">
