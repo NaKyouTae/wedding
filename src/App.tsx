@@ -17,6 +17,7 @@ import dayjs from "dayjs";
 
 // audio player
 import ReactAudioPlayer from 'react-audio-player';
+
 import MyImage from './assets/img/album-img01.png';
 
 declare const Kakao: any;
@@ -217,12 +218,9 @@ function App() {
     return (
         <div className="App">
             <div className="container">
-                <ReactAudioPlayer
-                    src='./assets/mp3/Ordinary_Confession.mp3'
-                    autoPlay
-                    controls
-                />
                 <div className="contents">
+                    {/* <audio src={{}} ref={audioEl}></audio>
+                    <label htmlFor="audio">111</label> */}
                     <div id="toast" className="toast">
                         <p>클립보드에 복사되었습니다.</p>
                     </div>
@@ -336,14 +334,14 @@ function App() {
                         <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">contact</h2>
                         <ul className="contact" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                             <li>
-                                <p>🤵🏻 신랑 나규태</p>
+                                <h3>🤵🏻 신랑 나규태</h3>
                                 <div>
                                     <a onClick={() => sendSms('01091092682')}>문자 보내기</a>
                                     <a onClick={() => onCall('01091092682')}>전화 걸기</a>
                                 </div>
                             </li>
                             <li>
-                                <p>👰🏻‍♀️ 신부 최보영</p>
+                                <h3>👰🏻‍♀️ 신부 최보영</h3>
                                 <div>
                                     <a onClick={() => sendSms('01085511423')}>문자 보내기</a>
                                     <a onClick={() => onCall('01085511423')}>전화 걸기</a>
@@ -357,25 +355,29 @@ function App() {
                             <li>
                                 <h3>🤵🏻 신랑 측 계좌번호</h3>
                                 <ul>
-                                    <li><p>토스뱅크 1000-5055-8487 나규태</p><a onClick={() => onCopy('100050558487')}>복사하기</a></li>
-                                    <li>
-                                        <button onClick={() => onClick('https://link.kakaopay.com/_/gbCaAUM')}><i className="ic-kakaotalk"></i>카카오페이 송금 바로가기</button>
-                                    </li>
+                                    <li>토스뱅크 1000-5055-8487</li>
+                                    <li>나규태</li>
                                 </ul>
+                                <div>
+                                    <a onClick={() => onCopy('100050558487')}>계좌 복사하기</a>
+                                    <a onClick={() => onClick('https://link.kakaopay.com/_/gbCaAUM')}><i className="ic-kakaotalk"></i>카카오페이 송금하기</a>
+                                </div>
                             </li>
                             <li>
                                 <h3>👰🏻‍♀️ 신부 측 계좌번호</h3>
                                 <ul>
-                                    <li><p>토스뱅크 1000-2298-9148 최보영</p><a onClick={() => onCopy('100022989148')}>복사하기</a></li>
-                                    <li>
-                                        <button onClick={() => onClick('https://link.kakaopay.com/_/0C7aeoq')}><i className="ic-kakaotalk"></i>카카오페이 송금 바로가기</button>
-                                    </li>
+                                    <li>토스뱅크 1000-2298-9148</li>
+                                    <li>최보영</li>
                                 </ul>
+                                <div>
+                                    <a onClick={() => onCopy('100022989148')}>계좌 복사하기</a>
+                                    <a onClick={() => onClick('https://link.kakaopay.com/_/0C7aeoq')}><i className="ic-kakaotalk"></i>카카오페이 송금하기</a>
+                                </div>
                             </li>
                         </ul>
                     </div>
                     <div className="box">
-                        <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">our day</h2>
+                        <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">in May</h2>
                         <div className="calendar" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                             <ul className="week">
                                 <li>일</li>
@@ -424,7 +426,7 @@ function App() {
                                 <li className="next"><p>1</p></li>
                             </ul>
                         </div>
-                        <p ref={targetRef} data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">규태 ♡ 보영 진짜 부부 되기까지 <span>{count}일</span></p>
+                        <p ref={targetRef} data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">2024년 05월 18일 토요일 오후 1시 20분<br/>규태 ♡ 보영 진짜 부부 되기까지 <span>{count}일</span></p>
                     </div>
                     <div className="box">
                         <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">to my loved ones</h2>
