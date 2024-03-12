@@ -15,8 +15,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import dayjs from "dayjs";
 
-// audio player
-
 import MyImage from './assets/img/album-img01.png';
 
 declare const Kakao: any;
@@ -237,13 +235,71 @@ function App() {
 
 -------------------------------------------------   만든 이. 나규태 최보영
         `);
-      }, []);
+    }, []);
    
+    // 오디오 플레이어 
+    const audioUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+    const [audio] = useState(new Audio(audioUrl));
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const togglePlay = () => {
+        if (isPlaying) {
+            audio.pause();
+        } else {
+            audio.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
+
+    // 재생 정지 버튼 스타일
+    const [muteBtnTop, setMuteBtnTop] = useState(2);
+    const [topBtnBottom, setTopBtnBottom] = useState(-5.2);
+    const [rotation, setRotation] = useState(0);
+    
+    let lastScrollY = window.scrollY;
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > lastScrollY) {
+                // 스크롤 내릴 때
+                setMuteBtnTop(-5.2);
+                setTopBtnBottom(2);
+            } else {
+                // 스크롤 올릴 때
+                setMuteBtnTop(2);
+                setTopBtnBottom(-5.2);
+            }
+            
+            lastScrollY = window.scrollY;
+
+            // 현재 스크롤 위치에 따라 회전 각도 계산
+            const rotation = window.scrollY % 360;
+            setRotation(rotation);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    // 상단으로
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+        
     return (
         <div className="App">
             <div className="container">
                 <div className="contents">
-                    {/* <ReactPlayer url='./assets/mp3/Ordinary_Confession.mp3' /> */}
+                    <button className="audio" style={{ top: `${muteBtnTop}rem` }} onClick={togglePlay}>
+                        {isPlaying ? <i className="ic-mute" /> : <i className="ic-unmute" />}
+                    </button>
+                    <button className="top" style={{ bottom: `${topBtnBottom}rem`, transform: `rotate(${rotation}deg)` }} onClick={scrollToTop}>UP</button>
                     <div id="toast" className="toast">
                         <p>클립보드에 복사되었습니다.</p>
                     </div>

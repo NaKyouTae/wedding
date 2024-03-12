@@ -105,3 +105,5 @@
 .copyright {text-align: center; font-size: 1.4rem; color: var(--gray03); font-weight: 300;}
 
 /* audio */
+.audio {position: fixed; right: 2rem; width: 3.2rem; height: 3.2rem; border-radius: 100%; background-color: rgba(244,244,244,.6); z-index: 99; transition: top .3s ease-in-out;}
+.top {position: fixed; right: 2rem; width: 3.2rem; height: 3.2rem; border-radius: 100%; background-color: rgba(244,244,244,.6); z-index: 99; transition: bottom .3s ease-in-out, transform ease-in;}
