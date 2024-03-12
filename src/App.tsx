@@ -16,7 +16,6 @@ import 'aos/dist/aos.css';
 import dayjs from "dayjs";
 
 // audio player
-import ReactAudioPlayer from 'react-audio-player';
 
 import MyImage from './assets/img/album-img01.png';
 
@@ -166,12 +165,12 @@ function App() {
                 //     setStartedCount(true)
                 // }
 
-                console.log('targetElement', targetElement.classList.contains('aos-animate'))
+                // console.log('targetElement', targetElement.classList.contains('aos-animate'))
 
 
                 if (bottom <= (windowHeight + 10) || bottom <= (windowHeight - 10)) {
 
-                    console.log(count, bottom, windowHeight)
+                    // console.log(count, bottom, windowHeight)
                     const endDate = getRemainingTime()
                     countNum(endDate, 0, 3000)
                     setStartedCount(true)
@@ -215,12 +214,36 @@ function App() {
         });
     }, [])
 
+    useEffect(() => {
+        console.log(`
+                        _  .-')                                        
+                       ( \\( -O )                                       
+ .-'),-----.  ,--. ,--.  ,------.                                       
+( OO'  .-.  ' |  | |  |  |   /\`. '                                      
+/   |  | |  | |  | | .-')|  /  | |                                       
+ \_) |  |\\|  | |  |_|( OO )  |_.' |                                      
+  \\ |  | |  | |  | | \`-' /  .  '.'                                      
+   \`'  '-'  '('  '-'(_.-'|  |\\  \\                                       
+     \`-----'   \`-----'   \`--' '--'                                      
+(\`\\ .-') /\`  ('-.  _ .-') _  _ .-') _               .-') _            
+\`.( OO ),'_(  OO)( (  OO) )( (  OO) )             ( OO ) )           
+,--./  .--. (,------.\\     .'_ \\     .'_  ,-.-') ,--./ ,--,' ,----.     
+|      |  |  |  .---',\`'--..._),\`'--..._) |  |OO)|   \\ |  |\\'  .-./-')  
+|  |   |  |, |  |    |  |  \\  '|  |  \\  ' |  |  \\|    \\|  | )  |_( O- ) 
+|  |.'.|  |_||  '--. |  |   ' ||  |   ' | |  |(_/|  .     |/|  | .--, \\ 
+|         |  |  .--' |  |   / :|  |   / :,|  |_.'|  |\\    |(|  | '. (_/ 
+|   ,'.   |  |  \`---.|  '--'  /|  '--'  (_|  |   |  | \\   | |  '--'  |  
+'--'   '--'  \`------'\`-------' \`-------'  \`--'   \`--'  \`--'  \`------'
+
+-------------------------------------------------   만든 이. 나규태 최보영
+        `);
+      }, []);
+   
     return (
         <div className="App">
             <div className="container">
                 <div className="contents">
-                    {/* <audio src={{}} ref={audioEl}></audio>
-                    <label htmlFor="audio">111</label> */}
+                    {/* <ReactPlayer url='./assets/mp3/Ordinary_Confession.mp3' /> */}
                     <div id="toast" className="toast">
                         <p>클립보드에 복사되었습니다.</p>
                     </div>
