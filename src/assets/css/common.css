@@ -24,6 +24,10 @@ html, body {
     -webkit-font-smoothing: antialiased;
     transition: color .6s, background-color .6s;
     overflow-x: hidden;
+
+    -ms-content-zooming: none;
+    -ms-touch-action: pan-x pan-y;
+    touch-action: pan-x pan-y;
 }
 
 /* typography --------------------------- */
