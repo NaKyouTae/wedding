@@ -6,15 +6,13 @@ const Calendar = () => {
 
     const targetRef = useRef(null);
 
+    const [isExecuted, setIsExecuted] = useState(false);
     const [count, setCount] = useState(0)
-    const [startedCount, setStartedCount] = useState(false)
 
     function getRemainingTime(): number {
         const today = dayjs();
         const remainingTime = weddingDate.diff(today);
-        const remainingDays = Math.floor(remainingTime / (24 * 60 * 60 * 1000));
-
-        return remainingDays;
+        return Math.floor(remainingTime / (24 * 60 * 60 * 1000));
     }
 
     function easeOutExpo(t: number): number {
@@ -38,28 +36,24 @@ const Calendar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
+            // 특정 div와의 교차 여부 확인
             const targetElement = targetRef.current as unknown as HTMLElement;
-            if (targetElement) {
-                const { top, bottom } = targetElement.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
+            const rect = targetElement.getBoundingClientRect();
+            const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
 
-                // 특정 영역에 도달하면 실행할 코드를 여기에 작성하세요
-                // if (top <= windowHeight && bottom >= 0 && !startedCount) {
-                //     console.log('cnt', startedCount)
-                //
-                //     countNum(endDate, 0, 3000)
-                //     setStartedCount(true)
-                // }
-
-                // console.log('targetElement', targetElement.classList.contains('aos-animate'))
-
-
-                if (bottom <= (windowHeight + 10) || bottom <= (windowHeight - 10)) {
-
-                    // console.log(count, bottom, windowHeight)
+            // 한 번만 실행되도록 처리
+            if (isInView) {
+                if(!isExecuted) {
+                    // 실행할 코드 작성
                     const endDate = getRemainingTime()
                     countNum(endDate, 0, 3000)
-                    setStartedCount(true)
+
+                    // 한 번 실행되었음을 상태로 표시
+                    setIsExecuted(true);
+                }
+            } else {
+                if(isExecuted) {
+                    setIsExecuted(false);
                 }
             }
         };
@@ -69,7 +63,8 @@ const Calendar = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [isExecuted]);
+
 
     return (
         <div className="box">
@@ -122,7 +117,9 @@ const Calendar = () => {
                     <li className="next"><p>1</p></li>
                 </ul>
             </div>
-            <p ref={targetRef} data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">2024년 05월 18일 토요일 오후 1시 20분<br/>규태 ♡ 보영 진짜 부부 되기까지 <span>{count}일</span></p>
+            <p ref={targetRef} data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                2024년 05월 18일 토요일 오후 1시 20분<br/>규태 ♡ 보영 진짜 부부 되기까지 <span>{count}일</span>
+            </p>
         </div>
     )
 }
