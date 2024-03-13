@@ -29,7 +29,8 @@
 /* opening */
 .opening {height: calc(100svh - 8rem); display: flex; flex-flow: column; row-gap: 3rem; align-items: center; justify-content: space-between;}
 .opening > h1 {text-align: center; font-size: 2.8rem; font-weight: 800;}
-.opening .img {width: 100%; height: 100%; background-color: #d9d9d9; background-repeat: no-repeat; background-size: cover; background-position: center;}
+.opening .img {width: 100%; height: 100%; background-color: #d9d9d9; background-repeat: no-repeat; background-size: cover; background-position: center; overflow: hidden; display: flex; align-items: flex-start; justify-content: center;}
+.opening .img img {width: 100%;}
 .opening .info {display: flex; flex-flow: column; row-gap: 1.6rem; align-items: center;}
 .opening .info > h2 {text-align: center; font-size: 1.8rem; font-weight: 500;}
 .opening .info > p {text-align: center; font-size: 1.6rem; line-height: 2;}
@@ -105,5 +106,5 @@
 .copyright {text-align: center; font-size: 1.4rem; color: var(--gray03); font-weight: 300;}
 
 /* audio */
-.audio {position: fixed; right: 2rem; width: 3.2rem; height: 3.2rem; border-radius: 100%; background-color: rgba(244,244,244,.6); z-index: 99; transition: top .3s ease-in-out;}
-.top {position: fixed; right: 2rem; width: 3.2rem; height: 3.2rem; border-radius: 100%; background-color: rgba(244,244,244,.6); z-index: 99; transition: bottom .3s ease-in-out, transform ease-in;}
+.audio {position: fixed; right: 2rem; width: 4rem; height: 4rem; border-radius: 100%; background-color: rgba(255,255,255,.8); z-index: 99; transition: top .3s ease-in-out;}
+.top {position: fixed; right: 2rem; width: 4rem; height: 4rem; border-radius: 100%; background-color: rgba(255,255,255,.8); z-index: 99; transition: bottom .3s ease-in-out, transform ease-in;}

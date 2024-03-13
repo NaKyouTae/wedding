@@ -6,7 +6,7 @@ const Opening = () => {
         <div className="opening">
             <h1>if(🤵🏻🤍👰🏻‍♀️) → marriage</h1>
             <div className="img">
-                <img src={MyImage} width={'100%'} height={'100%'} alt="이미지" />
+                <img src={MyImage} />
             </div>
             <div className="info">
                 <h2>나규태 그리고 최보영</h2>

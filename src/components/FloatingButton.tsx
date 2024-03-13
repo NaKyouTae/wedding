@@ -54,7 +54,7 @@ const FloatingButton = () => {
             if (window.scrollY > lastScrollY) {
                 // 스크롤 내릴 때
                 setMuteBtnTop(-5.2);
-                setTopBtnBottom(2);
+                setTopBtnBottom(4.8);
             } else {
                 // 스크롤 올릴 때
                 setMuteBtnTop(2);
