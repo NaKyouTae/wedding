@@ -17,6 +17,16 @@ import dayjs from "dayjs";
 
 import MyImage from './assets/img/photo/main.jpg';
 
+// Firebase Storage 가져오기
+// import { getStorage, ref, getDownloadURL } from "firebase/storage"
+//
+// const storage = getStorage(app)
+// const url = getDownloadURL(ref(storage, 'gs://wedding-9b3cb.appspot.com/thumbnail.png'));
+//
+// url.then((res: any) => {
+//     console.log('aaa', res)
+// })
+
 declare const Kakao: any;
 declare const naver: any;
 
@@ -32,6 +42,7 @@ const firebaseConfig = {
     measurementId: "G-QMHW4W7YS1"
 };
 const app = initializeApp(firebaseConfig);
+
 
 function App() {
     const y = 37.5605777
@@ -85,7 +96,7 @@ function App() {
                 objectType: 'feed',
                 content: {
                     title: '나규태 ♡ 최보영 결혼합니다.',
-                    imageUrl: 'https://naver.com', // 메인 이미지
+                    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/thumbnail.png?alt=media&token=c1716871-6a30-4fdb-bc2f-59f0bdd36989', // 메인 이미지
                     description: '5/18(토) 13:20 루이비스 중구',
                     link: {
                         mobileWebUrl: 'https://저희결혼합니다.com',
@@ -144,7 +155,7 @@ function App() {
                 audio.pause();
             } else {
                 audio.volume = 0.3;
-                audio.play();
+                // audio.play();
             }
             setIsPlaying(!isPlaying);
         }
@@ -221,17 +232,23 @@ function App() {
     }, []);
 
     useEffect(() => {
-        const mapEl = document.getElementById('map')
-        const latlng = new naver.maps.LatLng(y, x)
-        const mapOptions = {
-            center: latlng,
-            zoom: 14
-        };
-        const map = new naver.maps.Map(mapEl, mapOptions);
-        new naver.maps.Marker({
-            position: latlng,
-            map: map
-        });
+        if(naver.maps) {
+            console.log('x', naver)
+            const mapEl = document.getElementById('map')
+            const latlng = new naver.maps.LatLng(y, x)
+            console.log('lat', latlng)
+            if(latlng) {
+                const mapOptions = {
+                    center: latlng,
+                    zoom: 14
+                };
+                const map = new naver.maps.Map(mapEl, mapOptions);
+                new naver.maps.Marker({
+                    position: latlng,
+                    map: map
+                });
+            }
+        }
     }, [])
 
     useEffect(() => {
