@@ -10,7 +10,7 @@ const Footer = () => {
                 objectType: 'feed',
                 content: {
                     title: '나규태 ♡ 최보영 결혼합니다.',
-                    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/thumbnail.png?alt=media&token=c1716871-6a30-4fdb-bc2f-59f0bdd36989', // 메인 이미지
+                    imageUrl: ' https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/thumbnail01.png?alt=media&token=68a706bb-fb80-44f9-beb6-4f11d940abaf', // 메인 이미지
                     description: '5/18(토) 13:20 루이비스 중구',
                     link: {
                         mobileWebUrl: 'https://저희결혼합니다.com',

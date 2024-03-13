@@ -42,7 +42,6 @@ const FloatingButton = () => {
         if(isMobile) {
             togglePlay()
         }
-        console.log('navigator.userAgent', navigator.userAgent)
     }
 
     useEffect(() => {

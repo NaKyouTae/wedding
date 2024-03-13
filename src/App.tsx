@@ -23,16 +23,7 @@ import FloatingButton from "./components/FloatingButton";
 import Opening from "./components/Opening";
 
 // Firebase Storage 가져오기
-// import { getStorage, ref, getDownloadURL } from "firebase/storage"
-//
-// const storage = getStorage(app)
-// const url = getDownloadURL(ref(storage, 'gs://wedding-9b3cb.appspot.com/thumbnail.png'));
-//
-// url.then((res: any) => {
-//     console.log('aaa', res)
-// })
-
-declare const Kakao: any;
+import { getStorage, ref, getDownloadURL } from "firebase/storage"
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -46,7 +37,13 @@ const firebaseConfig = {
     measurementId: "G-QMHW4W7YS1"
 };
 const app = initializeApp(firebaseConfig);
+// const storage = getStorage(app)
+// const url = getDownloadURL(ref(storage, 'gs://wedding-9b3cb.appspot.com/thumbnail02.png'));
+// url.then((res: any) => {
+//     console.log('aaa2', res)
+// })
 
+declare const Kakao: any;
 
 function App() {
     useEffect(() => {
