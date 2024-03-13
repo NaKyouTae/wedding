@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 
+const isMobile = /Mobi/i.test(window.navigator.userAgent); // "Mobi" 가 User agent에 포함되어 있으면 모바일
+
 const FloatingButton = () => {
     let lastScrollY = window.scrollY;
     const audioUrl = 'https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/Ordinary_Confession.mp3?alt=media&token=3a07d846-1c0d-4d9d-bd61-af2f39f48be6'
@@ -37,7 +39,10 @@ const FloatingButton = () => {
     };
 
     const initAudio = () => {
-        // togglePlay()
+        if(isMobile) {
+            togglePlay()
+        }
+        console.log('navigator.userAgent', navigator.userAgent)
     }
 
     useEffect(() => {
