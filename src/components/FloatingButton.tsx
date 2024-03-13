@@ -16,7 +16,6 @@ const FloatingButton = () => {
     // 재생 정지 버튼 스타일
     const [muteBtnTop, setMuteBtnTop] = useState(2);
 
-
     // 상단으로
     const scrollToTop = () => {
         window.scrollTo({
@@ -38,7 +37,7 @@ const FloatingButton = () => {
     };
 
     const initAudio = () => {
-        togglePlay()
+        // togglePlay()
     }
 
     useEffect(() => {

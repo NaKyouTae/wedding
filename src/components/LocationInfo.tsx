@@ -22,10 +22,8 @@ const LocationInfo = () => {
 
     useEffect(() => {
         if(naver.maps) {
-            console.log('x', naver)
             const mapEl = document.getElementById('map')
             const latlng = new naver.maps.LatLng(y, x)
-            console.log('lat', latlng)
             if(latlng) {
                 const mapOptions = {
                     center: latlng,
