@@ -15,7 +15,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import dayjs from "dayjs";
 
-import MyImage from './assets/img/album-img01.png';
+import MyImage from './assets/img/photo/main.jpg';
 
 declare const Kakao: any;
 declare const naver: any;
@@ -39,7 +39,7 @@ function App() {
     const naverMapAppUrl = `nmap://navigation?dlat=${y}&dlng=${x}4&dname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%9B%A8%EB%94%A9%20%EC%A4%91%EA%B5%AC%EC%A0%90&appname=com.example.myapp`
     const tMapAppUrl = `tmap://route?goalx=${x}&goaly=${y}&goalname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%A4%91%EA%B5%AC%EC%A0%90`
     const audioUrl = 'https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/Ordinary_Confession.mp3?alt=media&token=3a07d846-1c0d-4d9d-bd61-af2f39f48be6'
-    
+
     const weddingDate = dayjs('2024-05-18 13:20');
     const [count, setCount] = useState(0)
     const [startedCount, setStartedCount] = useState(false)
@@ -138,7 +138,7 @@ function App() {
         }, frameRate)
     }
 
-    const togglePlay = () => {
+    const togglePlay = async () => {
         if(audio) {
             if (isPlaying) {
                 audio.pause();
@@ -258,12 +258,12 @@ function App() {
 -------------------------------------------------   만든 이. 나규태 최보영
         `);
     }, []);
-   
+
     // 재생 정지 버튼 스타일
     const [muteBtnTop, setMuteBtnTop] = useState(2);
     const [topBtnBottom, setTopBtnBottom] = useState(-5.2);
     const [rotation, setRotation] = useState(0);
-    
+
     let lastScrollY = window.scrollY;
 
     useEffect(() => {
@@ -277,7 +277,7 @@ function App() {
                 setMuteBtnTop(2);
                 setTopBtnBottom(-5.2);
             }
-            
+
             lastScrollY = window.scrollY;
 
             // 현재 스크롤 위치에 따라 회전 각도 계산
@@ -299,7 +299,7 @@ function App() {
             behavior: 'smooth',
         });
     };
-        
+
     return (
         <div className="App">
             <div className="container">
@@ -314,7 +314,7 @@ function App() {
                     <div className="opening">
                         <h1>if(🤵🏻🤍👰🏻‍♀️) → marriage</h1>
                         <div className="img">
-                            <img src={MyImage} alt="이미지" />
+                            <img src={MyImage} width={'100%'} height={'100%'} alt="이미지" />
                         </div>
                         <div className="info">
                             <h2>나규태 그리고 최보영</h2>
