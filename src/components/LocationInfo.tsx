@@ -68,6 +68,10 @@ const LocationInfo = () => {
                 <li>
                     <h4>셔틀버스</h4>
                     <p>서울역 1・3번 출구 → 롯데마트(서부역) 앞 셔틀버스 <br/>탑승 (10분 간격 상시 운행)</p>
+                    <div className="shuttle">
+                        <a>지하철역 출발</a>
+                        <a>기차역 출발</a>
+                    </div>
                 </li>
                 <li>
                     <h4>지하철</h4>

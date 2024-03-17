@@ -1,3 +1,4 @@
+import { log } from "console";
 import React, {useEffect, useState} from "react";
 
 const isMobile = /Mobi/i.test(window.navigator.userAgent); // "Mobi" 가 User agent에 포함되어 있으면 모바일
@@ -40,6 +41,7 @@ const FloatingButton = () => {
 
     const initAudio = () => {
         if(isMobile) {
+            console.log('aa', window.navigator.userAgent)
             togglePlay()
         }
     }
@@ -50,7 +52,13 @@ const FloatingButton = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > lastScrollY) {
+            const bottomPosition = document.documentElement.scrollHeight - window.innerHeight;
+
+            if (window.scrollY === 0 || window.scrollY >= bottomPosition) {
+                // 최상단 또는 최하단에 도달했을 때
+                setMuteBtnTop(2); // 상단 버튼 노출
+                setTopBtnBottom(4.8); // 하단 버튼 노출
+            } else if (window.scrollY > lastScrollY) {
                 // 스크롤 내릴 때
                 setMuteBtnTop(-5.2);
                 setTopBtnBottom(4.8);
