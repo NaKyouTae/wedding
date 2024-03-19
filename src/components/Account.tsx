@@ -14,7 +14,6 @@ const Account = () => {
                     </ul>
                     <div>
                         <a onClick={() => onCopy('100050558487')}>계좌 복사하기</a>
-                        <a onClick={() => onClick('https://link.kakaopay.com/_/gbCaAUM')}><i className="ic-kakaotalk"></i>카카오페이 송금하기</a>
                     </div>
                 </li>
                 <li>
@@ -24,7 +23,6 @@ const Account = () => {
                     </ul>
                     <div>
                         <a onClick={() => onCopy('100022989148')}>계좌 복사하기</a>
-                        <a onClick={() => onClick('https://link.kakaopay.com/_/0C7aeoq')}><i className="ic-kakaotalk"></i>카카오페이 송금하기</a>
                     </div>
                 </li>
             </ul>

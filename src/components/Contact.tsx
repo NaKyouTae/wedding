@@ -6,7 +6,7 @@ const Contact = () => {
         <div className="box">
             <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">contact</h2>
             <ul className="contact" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
-                <li><h3>🤵🏻 신랑측 혼주</h3></li>
+                <li><h3>🤵🏻 신랑측 혼주 연락처</h3></li>
                 <li>
                     <h4>[부] 나성원</h4>
                     <div>
