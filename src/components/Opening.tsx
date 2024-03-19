@@ -6,7 +6,8 @@ const Opening = () => {
         <div className="opening">
             <h1>the wedding of</h1>
             {/* <h1>if(🤵🏻🤍👰🏻‍♀️) → marriage</h1> */}
-            <div className="img" style={{backgroundImage: `url(${MyImage})`}}>
+            <div className="img">
+                <img src={MyImage} alt="" />
             </div>
             <div className="info">
                 <h2>나규태 그리고 최보영</h2>
