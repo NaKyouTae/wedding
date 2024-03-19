@@ -1,4 +1,4 @@
-import MyImage from "../assets/img/photo/main.jpg";
+import MyImage from "../assets/img/photo/photo00.jpg";
 import React from "react";
 
 const Opening = () => {
