@@ -4,7 +4,8 @@ import React from "react";
 const Opening = () => {
     return (
         <div className="opening">
-            <h1>if(🤵🏻🤍👰🏻‍♀️) → marriage</h1>
+            <h1>the wedding of</h1>
+            {/* <h1>if(🤵🏻🤍👰🏻‍♀️) → marriage</h1> */}
             <div className="img" style={{backgroundImage: `url(${MyImage})`}}>
             </div>
             <div className="info">
