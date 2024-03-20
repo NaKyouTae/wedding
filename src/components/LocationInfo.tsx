@@ -1,11 +1,14 @@
 import {onCall, onClick, onCopy} from "../utils/Copy";
 import React, {useCallback, useEffect} from "react";
+import ReactPlayer from "react-player";
 
 const y = 37.5605777
 const x = 126.9673387
 
 const naverMapAppUrl = `nmap://navigation?dlat=${y}&dlng=${x}4&dname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%9B%A8%EB%94%A9%20%EC%A4%91%EA%B5%AC%EC%A0%90&appname=com.example.myapp`
 const tMapAppUrl = `tmap://route?goalx=${x}&goaly=${y}&goalname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%A4%91%EA%B5%AC%EC%A0%90`
+const subway = 'https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/train.MP4?alt=media&token=6c255d96-fc2e-4b49-8dfd-da91493140e7'
+const train = 'https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/subway.MP4?alt=media&token=df26725b-3512-44c8-a164-63c1970c6130'
 
 declare const Kakao: any;
 declare const naver: any;
@@ -69,8 +72,8 @@ const LocationInfo = () => {
                     <h4>셔틀버스</h4>
                     <p>서울역 1・3번 출구 → 롯데마트(서부역) 앞 셔틀버스 <br/>탑승 (10분 간격 상시 운행)</p>
                     <div className="shuttle">
-                        <a>지하철역에서 가는 길</a>
-                        <a>기차역에서 가는 길</a>
+                        <a href={subway} target={"_blank"}>지하철역에서 가는 길</a>
+                        <a href={train} target={"_blank"}>기차역에서 가는 길</a>
                     </div>
                 </li>
                 <li>
