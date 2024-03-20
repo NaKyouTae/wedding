@@ -53,19 +53,19 @@ const FloatingButton = () => {
     useEffect(() => {
         const handleScroll = () => {
             const bottomPosition = document.documentElement.scrollHeight - window.innerHeight;
+            const visible = window.scrollY > 300; // 버튼을 300px 아래에서 보이게 하기 위한 조건
 
             if (window.scrollY === 0 || window.scrollY >= bottomPosition) {
                 // 최상단 또는 최하단에 도달했을 때
                 setMuteBtnTop(2); // 상단 버튼 노출
-                setTopBtnBottom(4.8); // 하단 버튼 노출
             } else if (window.scrollY > lastScrollY) {
                 // 스크롤 내릴 때
                 setMuteBtnTop(-5.2);
-                setTopBtnBottom(4.8);
+                setTopBtnBottom(visible ? 4.8 : -5.2); // 300px 아래에서만 하단 버튼 노출
             } else {
                 // 스크롤 올릴 때
-                setMuteBtnTop(2);
-                setTopBtnBottom(-5.2);
+                setMuteBtnTop(2); // 300px 아래에서만 상단 버튼 노출
+                setTopBtnBottom(visible ? 4.8 : -5.2); // 300px 아래에서만 하단 버튼 노출
             }
 
             lastScrollY = window.scrollY;

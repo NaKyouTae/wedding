@@ -35,12 +35,12 @@ const Photos = () => {
                 >
                     <SwiperSlide><img src={photo02} alt="" /></SwiperSlide>
                     <SwiperSlide><img src={photo01} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo05} alt="" /></SwiperSlide>
                     <SwiperSlide><img src={photo06} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo08} alt="" /></SwiperSlide>
+                    <SwiperSlide><img src={photo05} alt="" /></SwiperSlide>
                     <SwiperSlide><img src={photo11} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo09} alt="" /></SwiperSlide>
+                    <SwiperSlide><img src={photo08} alt="" /></SwiperSlide>
                     <SwiperSlide><img src={photo10} alt="" /></SwiperSlide>
+                    <SwiperSlide><img src={photo09} alt="" /></SwiperSlide>
                     <SwiperSlide><img src={photo07} alt="" /></SwiperSlide>
                     <SwiperSlide><img src={photo13} alt="" /></SwiperSlide>
                     <SwiperSlide><img src={photo14} alt="" /></SwiperSlide>
