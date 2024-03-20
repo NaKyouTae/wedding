@@ -1,6 +1,5 @@
 import {onCall, onClick, onCopy} from "../utils/Copy";
 import React, {useCallback, useEffect} from "react";
-import ReactPlayer from "react-player";
 
 const y = 37.5605777
 const x = 126.9673387
