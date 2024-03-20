@@ -1,6 +1,9 @@
 import React, {useEffect, useRef, useState} from "react";
 import dayjs from "dayjs";
 
+
+dayjs.locale('ko')
+
 const Calendar = () => {
     const weddingDate = dayjs('2024-05-18 13:20');
 
