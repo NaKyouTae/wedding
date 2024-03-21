@@ -38,7 +38,7 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 // const storage = getStorage(app)
-// const url = getDownloadURL(ref(storage, 'gs://wedding-9b3cb.appspot.com/train.MP4'));
+// const url = getDownloadURL(ref(storage, 'gs://wedding-9b3cb.appspot.com/parent_thumbnail02.png'));
 // url.then((res: any) => {
 //     console.log('aaa2', res)
 // })

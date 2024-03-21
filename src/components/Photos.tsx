@@ -18,8 +18,22 @@ import photo10 from "../assets/img/photo/photo10.jpg";
 import photo11 from "../assets/img/photo/photo11.jpg";
 import photo13 from "../assets/img/photo/photo13.jpg";
 import photo14 from "../assets/img/photo/photo14.jpg";
+import LazyLoadingImage from "../common/LazyLoadingImage";
 
 const Photos = () => {
+    const images = [
+        {key: 'photo02', src: photo02},
+        {key: 'photo01', src: photo01},
+        {key: 'photo06', src: photo06},
+        {key: 'photo05', src: photo05},
+        {key: 'photo11', src: photo11},
+        {key: 'photo08', src: photo08},
+        {key: 'photo10', src: photo10},
+        {key: 'photo09', src: photo09},
+        {key: 'photo07', src: photo07},
+        {key: 'photo13', src: photo13},
+        {key: 'photo14', src: photo14},
+    ]
     return (
         <div className="box">
             <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">photo</h2>
@@ -33,17 +47,22 @@ const Photos = () => {
                     modules={[Pagination]}
                     className="photoSwiper"
                 >
-                    <SwiperSlide><img src={photo02} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo01} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo06} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo05} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo11} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo08} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo10} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo09} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo07} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo13} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={photo14} alt="" /></SwiperSlide>
+                    {
+                        images.map((image: {key: string, src: any}) => (
+                            <SwiperSlide key={image.key}>
+                                <LazyLoadingImage
+                                    src={image.src}
+                                    onError={(e: React.ChangeEvent<HTMLImageElement>) => {
+                                        e.target.onerror = null; // 에러 핸들러 무한 루프 방지
+                                        e.target.src = photo02 // 이미지 로드 실패 시 p.image 사용
+                                        e.target.width = 380;
+                                        e.target.height = 380;
+                                    }}
+                                    placeholderImg={image.src}
+                                />
+                            </SwiperSlide>
+                        ))
+                    }
                 </Swiper>
             </div>
         </div>
