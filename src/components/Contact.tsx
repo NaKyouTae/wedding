@@ -5,8 +5,8 @@ const Contact = () => {
     return (
         <div className="box">
             <h2 className="ico" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">🤍</h2>
-            <ul className="contact" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
-                <li>
+            <ul className="contact">
+                <li data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                     <h3>🤵🏻 신랑 나규태</h3>
                     <ul>
                         <li>
@@ -22,7 +22,7 @@ const Contact = () => {
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                     <h3>👰🏻‍♀️ 신부 최보영</h3>
                     <ul>
                         <li>
