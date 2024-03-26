@@ -69,10 +69,10 @@ const LocationInfo = () => {
                 </li>
                 <li>
                     <h4>셔틀버스</h4>
-                    <p>서울역 1・3번 출구 → 롯데마트(서부역) 앞 셔틀버스 <br/>탑승 (10분 간격 상시 운행)</p>
+                    <p>서울역 1 ・ 3번 출구 → 롯데마트(서부역) 앞 셔틀버스 <br/>탑승 (10분 간격 상시 운행)</p>
                     <div className="shuttle">
-                        <a href={subway} target={"_blank"}>지하철역에서 가는 길</a>
-                        <a href={train} target={"_blank"}>기차역에서 가는 길</a>
+                        <a href={subway} target={"_blank"}>지하철역 출발</a>
+                        <a href={train} target={"_blank"}>기차역 출발</a>
                     </div>
                 </li>
                 <li>
@@ -82,11 +82,11 @@ const LocationInfo = () => {
                 <li>
                     <h4>버스</h4>
                     <div>
-                        <p>한국경제신문사・서소문역사공원 정류장 하차</p>
+                        <p>한국경제신문사 ・ 서소문역사공원 정류장 하차</p>
                         <ul>
-                            <li>- 간선 : 370, 603</li>
-                            <li>- 지선 : 7011, 7013A, 7013B, 7017</li>
-                            <li>- 공항 : 6015</li>
+                            <li>간선 : 370, 603</li>
+                            <li>지선 : 7011, 7013A, 7013B, 7017</li>
+                            <li>공항 : 6015</li>
                         </ul>
                     </div>
                 </li>

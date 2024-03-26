@@ -91,7 +91,7 @@ function App() {
                     <Photos />
                     <LocationInfo />
                     <Contact />
-                    <Account />
+                    {/* <Account /> */}
                     <Calendar />
                     <Footer />
                 </div>
