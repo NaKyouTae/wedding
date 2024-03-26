@@ -46,7 +46,7 @@
 .photo-grid > li {overflow: hidden; height: 32.5vw; display: flex; align-items: center; justify-content: center; background-repeat: no-repeat; background-size: cover; background-position: center;}
 
 .photo-wrap {width: calc(100% + 4rem); margin: 0 -2rem;}
-.photo-wrap .photoSwiper.swiper {width: 100%; padding: 0 4rem 4rem;}
+.photo-wrap .photoSwiper.swiper {width: 100%; padding: 0 6rem 4rem;}
 .photo-wrap .photoSwiper.swiper .swiper-slide {background-color: #d9d9d9; font-size: 16px; color: var(--white); display: flex; align-items: center; justify-content: center;}
 .photo-wrap .photoSwiper.swiper .swiper-slide img {width: 100%; display: block;}
 .photo-wrap .photoSwiper.swiper .swiper-pagination {top:initial; bottom: 0;}
