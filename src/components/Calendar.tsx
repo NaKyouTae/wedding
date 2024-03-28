@@ -121,7 +121,7 @@ const Calendar = () => {
                 </ul>
             </div>
             <p ref={targetRef} data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
-                2024년 05월 18일 토요일 오후 1시 20분<br/>규태 ♡ 보영 진짜 부부 되기까지 <span>{count}일</span>
+                2024년 5월 18일 토요일 오후 1시 20분<br/>규태 ♡ 보영 진짜 부부 되기까지 <span>{count}일</span>
             </p>
         </div>
     )

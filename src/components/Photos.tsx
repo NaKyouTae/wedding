@@ -37,11 +37,25 @@ const Photos = () => {
     return (
         <div className="box">
             <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">photo</h2>
+            {/* <ul className="photo-grid" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                <li style={{backgroundImage: `url(${photo02})`}}></li>
+                <li style={{backgroundImage: `url(${photo01})`}}></li>
+                <li style={{backgroundImage: `url(${photo15})`}}></li>
+                <li style={{backgroundImage: `url(${photo06})`}}></li>
+                <li style={{backgroundImage: `url(${photo05})`}}></li>
+                <li style={{backgroundImage: `url(${photo11})`}}></li>
+                <li style={{backgroundImage: `url(${photo08})`}}></li>
+                <li style={{backgroundImage: `url(${photo10})`}}></li>
+                <li style={{backgroundImage: `url(${photo09})`}}></li>
+                <li style={{backgroundImage: `url(${photo07})`}}></li>
+                <li style={{backgroundImage: `url(${photo13})`}}></li>
+                <li style={{backgroundImage: `url(${photo14})`}}></li>
+            </ul> */}
             <div className="photo-wrap" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                 <Swiper
                     slidesPerView={1}
                     centeredSlides={true}
-                    spaceBetween={16}
+                    spaceBetween={6}
                     loop={true}
                     pagination={true}
                     modules={[Pagination]}
