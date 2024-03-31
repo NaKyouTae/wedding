@@ -1,5 +1,5 @@
 /* to embed a font */
-@import url('public/assets/css/font.css');
+@import url('./font.css');
 
 :root {
     --black: #121212;
