@@ -23,7 +23,7 @@ const Calendar = () => {
     }
 
     const countNum = (end: number, start = 0, duration = 2000) => {
-        const frameRate = 1000 / 60
+        const frameRate = 3000 / 60
         const totalFrame = Math.round(duration / frameRate)
 
         let currentNumber = start

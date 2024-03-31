@@ -14,7 +14,7 @@ const FloatingButton = () => {
     // 오디오 플레이어
     const audioEle = new Audio(audioUrl);
     const [audio] = useState<HTMLAudioElement>(audioEle);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
 
     // 재생 정지 버튼 스타일
     const [muteBtnTop, setMuteBtnTop] = useState(2);
