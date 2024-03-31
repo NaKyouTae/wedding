@@ -7,18 +7,18 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 
-import photo01 from "../assets/img/photo/photo01.jpg";
-import photo02 from "../assets/img/photo/photo02.jpg";
-import photo05 from "../assets/img/photo/photo05.jpg";
-import photo06 from "../assets/img/photo/photo06.jpg";
-import photo07 from "../assets/img/photo/photo07.jpg";
-import photo08 from "../assets/img/photo/photo08.jpg";
-import photo09 from "../assets/img/photo/photo09.jpg";
-import photo10 from "../assets/img/photo/photo10.jpg";
-import photo11 from "../assets/img/photo/photo11.jpg";
-import photo13 from "../assets/img/photo/photo13.jpg";
-import photo14 from "../assets/img/photo/photo14.jpg";
-import photo15 from "../assets/img/photo/photo15.jpg";
+import photo01 from "../../public/assets/img/photo/photo01.jpg";
+import photo02 from "../../public/assets/img/photo/photo02.jpg";
+import photo05 from "../../public/assets/img/photo/photo05.jpg";
+import photo06 from "../../public/assets/img/photo/photo06.jpg";
+import photo07 from "../../public/assets/img/photo/photo07.jpg";
+import photo08 from "../../public/assets/img/photo/photo08.jpg";
+import photo09 from "../../public/assets/img/photo/photo09.jpg";
+import photo10 from "../../public/assets/img/photo/photo10.jpg";
+import photo11 from "../../public/assets/img/photo/photo11.jpg";
+import photo13 from "../../public/assets/img/photo/photo13.jpg";
+import photo14 from "../../public/assets/img/photo/photo14.jpg";
+import photo15 from "../../public/assets/img/photo/photo15.jpg";
 
 const Photos = () => {
     return (

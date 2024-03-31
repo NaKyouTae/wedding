@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './assets/css/reset.css';
-import './assets/css/font.css';
-import './assets/css/ico.css';
-import './assets/css/common.css';
-import './assets/css/style.css';
+import '../public/assets/css/reset.css';
+import '../public/assets/css/font.css';
+import '../public/assets/css/ico.css';
+import '../public/assets/css/common.css';
+import '../public/assets/css/style.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

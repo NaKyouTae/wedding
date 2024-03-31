@@ -37,11 +37,11 @@ const firebaseConfig = {
     measurementId: "G-QMHW4W7YS1"
 };
 const app = initializeApp(firebaseConfig);
-// const storage = getStorage(app)
-// const url = getDownloadURL(ref(storage, 'gs://wedding-9b3cb.appspot.com/train.MP4'));
-// url.then((res: any) => {
-//     console.log('aaa2', res)
-// })
+const storage = getStorage(app)
+const url = getDownloadURL(ref(storage, 'gs://wedding-9b3cb.appspot.com/photo00.jpg'));
+url.then((res: any) => {
+    console.log('aaa2', res)
+})
 
 declare const Kakao: any;
 

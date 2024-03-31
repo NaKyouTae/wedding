@@ -1,0 +1,16 @@
+i {display: flex; align-items: center; justify-content: center; background-repeat: no-repeat; background-position: center; background-size: contain;}
+
+/* icon : a b c d e f g h i j k l m n o p q r s t u v w x y z */
+
+.ic-navermap {width: 1.6rem; height: 1.6rem; background-image: url(public/assets/img/ico/ic-navermap.svg);}
+.ic-kakaonavi {width: 1.6rem; height: 1.6rem; background-image: url(public/assets/img/ico/ic-kakaonavi.svg);}
+.ic-tmap {width: 1.6rem; height: 1.6rem; background-image: url(public/assets/img/ico/ic-tmap.svg);}
+
+.ic-kakao {width: 1.6rem; height: 1.6rem; background-image: url(public/assets/img/ico/ic-kakao.svg);}
+.ic-kakaotalk {width: 1.6rem; height: 1.6rem; background-image: url(public/assets/img/ico/ic-kakaotalk.svg);}
+
+.ic-play {width: 1rem; height: 1rem; background-image: url(public/assets/img/ico/ic-play.svg); background-position: center right;}
+.ic-pause {width: 1rem; height: 1rem; background-image: url(public/assets/img/ico/ic-pause.svg);}
+
+.ic-mute {width: 2rem; height: 2rem; background-image: url(public/assets/img/ico/ic-mute.svg);}
+.ic-unmute {width: 2rem; height: 2rem; background-image: url(public/assets/img/ico/ic-unmute.svg);}

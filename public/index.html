@@ -1,37 +1,321 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="ko">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>나규태 ♡ 최보영 결혼합니다.</title>
+    <title>나규태1 ♡ 최보영1 결혼합니다.</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/common.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/ico.css">
     <!-- favicon -->
-    <link rel="icon" href="%PUBLIC_URL%/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
     <!-- Open Graph -->
     <meta property="og:title" content="나규태 ♡ 최보영 결혼합니다.">
     <meta property="og:description" content="5/18(토) 13:20 루이비스 중구">
     <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/thumbnail02.png?alt=media&token=c5056b06-105f-4e18-be4c-37ae6753e6c5">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://저희결혼합니다.com">
-    <!-- IOS 전화번호 자동링크 방지 태그 -->
-    <meta name="format-detection" content="telephone=no">
-    <!--  Kakao SDK  -->
-    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js" integrity="sha384-6MFdIr0zOira1CHQkedUqJVql0YtcZA1P0nbPrQYJXVJZUkTk/oX4U9GhUIs3/z8" crossorigin="anonymous"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <!-- Naver Maps SDK -->
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=l9c0zsy15x"></script>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js" integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=l9c0zsy15x"></script>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    <script type="text/javascript">
+        AOS.init();
+        Kakao.init('5a6eb9e30f5c017444702a8e4e9afb70');
+        Kakao.isInitialized();
+
+        const y = 37.5605777;
+        const x = 126.9673387;
+        const mapEl = document.getElementById('map');
+        const latlng = new naver.maps.LatLng(y, x);
+
+        if(latlng) {
+            const mapOptions = {
+                center: latlng,
+                zoom: 14
+            };
+            const map = new naver.maps.Map(mapEl, mapOptions);
+            new naver.maps.Marker({
+                position: latlng,
+                map: map
+            });
+        }
+
+        const naverMapAppUrl = `nmap://navigation?dlat=${y}&dlng=${x}4&dname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%9B%A8%EB%94%A9%20%EC%A4%91%EA%B5%AC%EC%A0%90&appname=com.example.myapp`
+        const tMapAppUrl = `tmap://route?goalx=${x}&goaly=${y}&goalname=%EB%A3%A8%EC%9D%B4%EB%B9%84%EC%8A%A4%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%A4%91%EA%B5%AC%EC%A0%90`
+        const subway = 'https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/train.MP4?alt=media&token=6c255d96-fc2e-4b49-8dfd-da91493140e7'
+        const train = 'https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/subway.MP4?alt=media&token=df26725b-3512-44c8-a164-63c1970c6130'
+
+        const onClickTo = ((url) => {
+            window.open(url)
+        });
+
+        const onCall = (phoneNumber) => {
+            window.open(`tel:${phoneNumber}`)
+        }
+
+        const sendSms = (phoneNumber) => {
+            window.open(`sms:${phoneNumber}&body=`)
+        }
+
+        const onCopy = (async (text) => {
+            await navigator.clipboard.writeText(text);
+
+            const toast = document.getElementById('toast');
+            const classList = toast.classList
+
+            if(!classList.contains('active')) {
+                toast.classList.add('active')
+            }
+
+            setTimeout(() => {
+                toast.classList.remove('active')
+            }, 1500)
+        })
+
+        let isPlaying = true;
+        let audio = document.getElementById('audio');
+
+        const togglePlay = () => {
+            alert(`audio ${audio} ${isPlaying}`)
+            console.log('audio 1', audio);
+            if(audio) {
+                if (isPlaying) {
+                    audio.pause();
+                } else {
+                    audio.volume = 0.3;
+                    audio.play();
+                }
+                isPlaying = !isPlaying;
+            }
+        };
+
+        const scrollToTop = () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        };
+
+        const onClickToForKakao = () => {
+            Kakao.Navi.start({
+                name: '루이비스 웨딩 중구점',
+                x,
+                y,
+                coordType: 'wgs84',
+            })
+        };
+
+        const onShareKakao = () => {
+            Kakao.Share.sendDefault({
+                objectType: 'feed',
+                content: {
+                    title: '나규태 ♡ 최보영 결혼합니다.',
+                    imageUrl: ' https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/thumbnail01.png?alt=media&token=68a706bb-fb80-44f9-beb6-4f11d940abaf', // 메인 이미지
+                    description: '5/18(토) 13:20 루이비스 중구',
+                    link: {
+                        mobileWebUrl: 'https://저희결혼합니다.com',
+                    },
+                },
+                buttons: [
+                    {
+                        title: '청첩장으로 이동',
+                        link: {
+                            mobileWebUrl: 'https://저희결혼합니다.com',
+                        },
+                    },
+                ],
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="contents">
+            <div class="opening">
+                <h1>if(🤵🏻🤍👰🏻‍♀️) → marriage</h1>
+                <div class="img" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/photo00.jpg?alt=media&token=17e64c1c-8b37-410d-9e60-2efc8fdf5aca')">
+                </div>
+                <div class="info">
+                    <h2>나규태 그리고 최보영</h2>
+                    <p>2024년 5월 18일 토요일 오후 1시 20분<br/>루이비스 웨딩 중구(단독홀)</p>
+                </div>
+            </div>
+            <div class="box">
+                <h2 class="ico">🕊️</h2>
+                <div class="introduce">
+                    <p>
+                        아홉 번째 봄을 같이 맞이하는 어느 날<br>저희 드디어 결혼합니다.<br><br>
+                        언제나처럼 평생의 친구이자 든든한 아군으로<br>그리고 서로에게 유일한 사랑으로 머물겠습니다.<br><br>
+                        저희 두 사람의 새로운 시작에<br>그동안 아껴주시던 소중한 여러분들을 초대합니다.<br>눈부실 여정, 그 설레는 첫걸음을 함께 빛내주세요.
+                    </p>
+                    <ul>
+                        <li><p>나 성 원 ・ 성 춘 희</p>의 장남<h3>규 태</h3></li>
+                        <li><p>최 해 철 ・ 이 현 정</p>의 장녀<h3>보 영</h3></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box">
+                <h2>photo</h2>
+                <div class="photo-wrap">
+                    <!-- Swiper -->
+                    <div class="swiper photoSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                            <div class="swiper-slide">Slide 9</div>
+                        </div>
+                        <script>
+                            const swiper = new Swiper(".photoSwiper", {
+                                slidesPerView: "auto",
+                                centeredSlides: true,
+                                loop: true,
+                                spaceBetween: 16,
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">location</h2>
+                <div id="map" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800"></div>
+                <div class="place" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                    <h3>루이비스 웨딩 중구</h3>
+                    <ul>
+                        <li><p>서울 중구 청파로 463 한국경제신문사</p><a onclick="onCopy('서울 중구 청파로 463')">복사하기</a></li>
+                        <li><p>T. 02 312 6800</p><a onclick="onCall('023126800')">전화걸기</a></li>
+                    </ul>
+                    <div>
+                        <button onclick="onClickTo(naverMapAppUrl)">
+                            <i class="ic-navermap"></i>
+                            네이버지도
+                        </button>
+                        <button onclick="onClickToForKakao()">
+                            <i class="ic-kakaonavi"></i>
+                            카카오내비
+                        </button>
+                        <button onclick="onClickTo(tMapAppUrl)">
+                            <i class="ic-tmap"></i>
+                            티맵
+                        </button>
+                    </div>
+                </div>
+                <ul class="traffic" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                    <li>
+                        <h4>주차</h4>
+                        <p>건물 내 지하 주차장 이용 (2시간 무료 주차)</p>
+                    </li>
+                    <li>
+                        <h4>셔틀버스</h4>
+                        <p>서울역 1 ・ 3번 출구 → 롯데마트(서부역) 앞 셔틀버스 <br/>탑승 (10분 간격 상시 운행)</p>
+                        <div class="shuttle">
+                            <a href="https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/subway.MP4?alt=media&token=df26725b-3512-44c8-a164-63c1970c6130" target="_blank">지하철역 출발</a>
+                            <a href="https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/train.MP4?alt=media&token=6c255d96-fc2e-4b49-8dfd-da91493140e7" target="_blank">기차역 출발</a>
+                        </div>
+                    </li>
+                    <li>
+                        <h4>지하철</h4>
+                        <p>2호선 / 5호선 충정로역 4번 출구 하차 → 도보 3분</p>
+                    </li>
+                    <li>
+                        <h4>버스</h4>
+                        <div>
+                            <p>한국경제신문사 ・ 서소문역사공원 정류장 하차</p>
+                            <ul>
+                                <li>간선 : 370, 603</li>
+                                <li>지선 : 7011, 7013A, 7013B, 7017</li>
+                                <li>공항 : 6015</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box">
+                <h2 class="ico" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">🤍</h2>
+                <ul class="account" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                    <li>
+                        <h3>🤵🏻 신랑 측 계좌번호</h3>
+                        <ul>
+                            <li>토스뱅크 1000-5055-8487</li>
+                            <li>나규태</li>
+                        </ul>
+                        <div>
+                            <a onclick="onCopy('100050558487')">계좌 복사하기</a>
+                            <a onclick="onClickTo('https://link.kakaopay.com/_/gbCaAUM')"><i class="ic-kakaotalk"></i>카카오페이 송금하기</a>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>👰🏻‍♀️ 신부 측 계좌번호</h3>
+                        <ul>
+                            <li>토스뱅크 1000-2298-9148</li>
+                            <li>최보영</li>
+                        </ul>
+                        <div>
+                            <a onclick="onCopy('100022989148')">계좌 복사하기</a>
+                            <a onclick="onClickTo('https://link.kakaopay.com/_/0C7aeoq')"><i class="ic-kakaotalk"></i>카카오페이 송금하기</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box">
+                <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">to my loved ones</h2>
+                <p class="thanks" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">응원하고 축하해 주신 모든 분들께 감사드립니다.<br/>보내주신 마음 잊지 않고 행복하게 잘 살겠습니다.</p>
+                <div class="copy" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                    <button onclick="onShareKakao()">카카오톡 공유하기</button>
+                    <button onclick="onCopy('https://저희결혼합니다.com')">링크 복사하기</button>
+                </div>
+            </div>
+            <p class="copyright">만든 이. 나규태 최보영</p>
+            <p class="copyright">copyright</p>
+            <div id="toast" class="toast">
+                <p>클립보드에 복사되었습니다.</p>
+            </div>
+            <button class="audio" onclick="togglePlay()">
+                <i className="ic-unmute" />
+<!--                {isPlaying ? <i className="ic-mute" /> : <i className="ic-unmute" />}-->
+            </button>
+            <audio id="audio" controls autoplay>
+                <source src="https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/Ordinary_Confession_s.mp3?alt=media&token=5d45839e-c367-4843-b2f9-22e5bbbe3a14" type="audio/mpeg">
+            </audio>
+
+            <button class="top" onclick="scrollToTop()">UP</button>
+        </div>
+    </div>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyCvb6m0Lp8edEHjyaTYGq_R1FssnZiSdT8",
+        authDomain: "wedding-9b3cb.firebaseapp.com",
+        projectId: "wedding-9b3cb",
+        storageBucket: "wedding-9b3cb.appspot.com",
+        messagingSenderId: "497760462889",
+        appId: "1:497760462889:web:aa9a13d383045a13e19438",
+        measurementId: "G-QMHW4W7YS1"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+</script>
 </html>
