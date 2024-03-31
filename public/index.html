@@ -20,6 +20,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js" integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01" crossorigin="anonymous"></script>
     <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=l9c0zsy15x"></script>
+    <!-- Count Up -->
+    <script nomodule src="js/countUp.umd.js"></script>
+    <script nomodule src="js/main-for-legacy.js"></script>
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
     <!-- Open Graph -->
@@ -242,7 +245,7 @@
                     </ul>
                 </div>
                 <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
-                    2024년 5월 18일 토요일 오후 1시 20분<br/>규태 ♡ 보영 진짜 부부 되기까지 <span>일</span>
+                    2024년 5월 18일 토요일 오후 1시 20분<br/>규태 ♡ 보영 진짜 부부 되기까지 <span id="countTarget">일</span>
                 </p>
             </div>
             <div class="box">
@@ -279,7 +282,6 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
-
     const initDraw = `
                         _  .-')
                        ( \\( -O )
@@ -410,5 +412,29 @@
             ],
         });
     }
+</script>
+<!-- d-day 날짜 카운팅 스크립트 -->
+<script>
+    const animateValue = (obj, start, duration) => {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const today = new Date();
+            const targetDate = new Date('2024-05-18');
+            const diffTime = Math.abs(targetDate - today);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            obj.innerHTML = `${Math.floor(progress * (diffDays - start) + start)}일`;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    const obj = document.getElementById("countTarget");
+
+    animateValue(obj, 0, 3000);
 </script>
 </html>
