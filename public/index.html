@@ -38,7 +38,9 @@
     </div>
         
     <button class="top" onclick="scrollToTop()">UP</button>
-    <button class="audio" onclick="togglePlay()"><i class="ic-unmute"></i></button>
+    <button class="audio" onclick="togglePlay()">
+        <i class="ic-unmute"></i>
+    </button>
     
     <iframe src="./assets/mp3/silence.mp3" allow="autoplay" id="silence"></iframe>  
     <audio autoplay loop id="audio">
@@ -362,7 +364,12 @@
 
     let isPlaying = true;
     let audio = document.getElementById('audio');
+    const icon = element.querySelector('i');
 
+    console.log('icon', icon);
+
+    // icon.classList.toggle('ic-unmute');
+    // icon.classList.toggle('ic-mute');
     const togglePlay = () => {
         if(audio) {
             if (isPlaying) {
