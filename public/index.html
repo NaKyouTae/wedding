@@ -3,13 +3,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>나규태1 ♡ 최보영1 결혼합니다.</title>
+    <title>나규태 ♡ 최보영 결혼합니다.</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/font.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/common.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/ico.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="./assets/script/script.js"></script>
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js" integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01" crossorigin="anonymous"></script>
+    <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=l9c0zsy15x"></script>
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
     <!-- Open Graph -->
@@ -18,21 +28,25 @@
     <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/thumbnail02.png?alt=media&token=c5056b06-105f-4e18-be4c-37ae6753e6c5">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://저희결혼합니다.com">
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js" integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=l9c0zsy15x"></script>
 </head>
 <body>
+    <div id="toast" class="toast">
+        <p>클립보드에 복사되었습니다.</p>
+    </div>
+        
+    <button class="top" onclick="scrollToTop()">UP</button>
+    <button class="audio" onclick="togglePlay()"><i class="ic-unmute"></i></button>
+    
+    <iframe src="./assets/mp3/silence.mp3" allow="autoplay" id="silence"></iframe>  
+    <audio autoplay loop id="audio">
+        <source src="./assets/mp3/Ordinary_Confession.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="container">
         <div class="contents">
             <div class="opening">
                 <h1>if(🤵🏻🤍👰🏻‍♀️) → marriage</h1>
-                <div class="img" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/photo00.jpg?alt=media&token=17e64c1c-8b37-410d-9e60-2efc8fdf5aca')">
+                <div class="img" style="background-image: url('./assets/img/photo/photo00.jpg')">
                 </div>
                 <div class="info">
                     <h2>나규태 그리고 최보영</h2>
@@ -40,50 +54,56 @@
                 </div>
             </div>
             <div class="box">
-                <h2 class="ico">🕊️</h2>
+                <h2 class="ico" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">🕊️</h2>
                 <div class="introduce">
-                    <p>
-                        아홉 번째 봄을 같이 맞이하는 어느 날<br>저희 드디어 결혼합니다.<br><br>
-                        언제나처럼 평생의 친구이자 든든한 아군으로<br>그리고 서로에게 유일한 사랑으로 머물겠습니다.<br><br>
-                        저희 두 사람의 새로운 시작에<br>그동안 아껴주시던 소중한 여러분들을 초대합니다.<br>눈부실 여정, 그 설레는 첫걸음을 함께 빛내주세요.
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                        아홉 번째 봄을 같이 맞이하는 어느 날<br/>저희 드디어 결혼합니다.<br/><br/>
+                        언제나처럼 평생의 친구이자 든든한 아군으로<br/>그리고 서로에게 유일한 사랑으로 머물겠습니다.<br/><br/>
+                        저희 두 사람의 새로운 시작에<br/>그동안 아껴주시던 소중한 여러분들을 초대합니다.<br/>눈부실 여정, 그 설레는 첫걸음을 함께 빛내주세요.
                     </p>
-                    <ul>
+                    <ul data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                         <li><p>나 성 원 ・ 성 춘 희</p>의 장남<h3>규 태</h3></li>
                         <li><p>최 해 철 ・ 이 현 정</p>의 장녀<h3>보 영</h3></li>
                     </ul>
                 </div>
             </div>
             <div class="box">
-                <h2>photo</h2>
-                <div class="photo-wrap">
+                <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">photo</h2>
+                <div class="photo-wrap" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                     <!-- Swiper -->
-                    <div class="swiper photoSwiper">
+                    <ul class="swiper photoSwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">Slide 1</div>
-                            <div class="swiper-slide">Slide 2</div>
-                            <div class="swiper-slide">Slide 3</div>
-                            <div class="swiper-slide">Slide 4</div>
-                            <div class="swiper-slide">Slide 5</div>
-                            <div class="swiper-slide">Slide 6</div>
-                            <div class="swiper-slide">Slide 7</div>
-                            <div class="swiper-slide">Slide 8</div>
-                            <div class="swiper-slide">Slide 9</div>
+                            <div class="swiper-slide"><img src="./assets/img/photo/photo02.jpg"></div>
+                            <div class="swiper-slide"><img src="./assets/img/photo/photo01.jpg"></div>
+                            <div class="swiper-slide"><img src="./assets/img/photo/photo06.jpg"></div>
+                            <div class="swiper-slide"><img src="./assets/img/photo/photo05.jpg"></div>
+                            <div class="swiper-slide"><img src="./assets/img/photo/photo11.jpg"></div>
+                            <div class="swiper-slide"><img src="./assets/img/photo/photo08.jpg"></div>
+                            <div class="swiper-slide"><img src="./assets/img/photo/photo10.jpg"></div>
+                            <div class="swiper-slide"><img src="./assets/img/photo/photo09.jpg"></div>
+                            <div class="swiper-slide"><img src="./assets/img/photo/photo07.jpg"></div>
+                            <div class="swiper-slide"><img src="./assets/img/photo/photo13.jpg"></div>
+                            <div class="swiper-slide"><img src="./assets/img/photo/photo14.jpg"></div>
                         </div>
+                        <div class="swiper-pagination"></div>
                         <script>
                             const swiper = new Swiper(".photoSwiper", {
-                                slidesPerView: "auto",
+                                slidesPerView: 1,
                                 centeredSlides: true,
                                 loop: true,
-                                spaceBetween: 16,
+                                spaceBetween: 6,
+                                pagination: {
+                                    el: ".swiper-pagination",
+                                },
                             });
                         </script>
-                    </div>
+                    </ul>
                 </div>
             </div>
             <div class="box">
                 <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">location</h2>
-                <div id="map" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800"></div>
-                <div class="place" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+            <div id="map" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800"></div>
+            <div class="place" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
                     <h3>루이비스 웨딩 중구</h3>
                     <ul>
                         <li><p>서울 중구 청파로 463 한국경제신문사</p><a onclick="onCopy('서울 중구 청파로 463')">복사하기</a></li>
@@ -136,30 +156,94 @@
             </div>
             <div class="box">
                 <h2 class="ico" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">🤍</h2>
-                <ul class="account" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
-                    <li>
-                        <h3>🤵🏻 신랑 측 계좌번호</h3>
+                <ul class="contact">
+                    <li data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                        <h3>🤵🏻 신랑 나규태</h3>
                         <ul>
-                            <li>토스뱅크 1000-5055-8487</li>
-                            <li>나규태</li>
+                            <li>
+                                <p>토스뱅크 1000-5055-8487 나규태</p>
+                                <a onclick="onCopy('100050558487')">복사하기</a>
+                            </li>
+                            <li>
+                                <button onclick="onClickTo('https://link.kakaopay.com/_/gbCaAUM')"><i class="ic-kakaotalk"></i>카카오페이 송금 바로가기</button>
+                            </li>
+                            <li>
+                                <button onclick="sendSms('01091092682')">문자 보내기</button>
+                                <button onclick="onCall('01091092682')">전화 걸기</button>
+                            </li>
                         </ul>
-                        <div>
-                            <a onclick="onCopy('100050558487')">계좌 복사하기</a>
-                            <a onclick="onClickTo('https://link.kakaopay.com/_/gbCaAUM')"><i class="ic-kakaotalk"></i>카카오페이 송금하기</a>
-                        </div>
                     </li>
-                    <li>
-                        <h3>👰🏻‍♀️ 신부 측 계좌번호</h3>
+                    <li data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                        <h3>👰🏻‍♀️ 신부 최보영</h3>
                         <ul>
-                            <li>토스뱅크 1000-2298-9148</li>
-                            <li>최보영</li>
+                            <li>
+                                <p>토스뱅크 1000-2298-9148 최보영</p>
+                                <a onclick="onCopy('100022989148')">복사하기</a>
+                            </li>
+                            <li>
+                                <button onclick="onClickTo('https://link.kakaopay.com/_/0C7aeoq')"><i class="ic-kakaotalk"></i>카카오페이 송금 바로가기</button>
+                            </li>
+                            <li>
+                                <button onclick="sendSms('01085511423')">문자 보내기</button>
+                                <button onclick="onCall('01085511423')">전화 걸기</button>
+                            </li>
                         </ul>
-                        <div>
-                            <a onclick="onCopy('100022989148')">계좌 복사하기</a>
-                            <a onclick="onClickTo('https://link.kakaopay.com/_/0C7aeoq')"><i class="ic-kakaotalk"></i>카카오페이 송금하기</a>
-                        </div>
                     </li>
                 </ul>
+            </div>
+            <div class="box">
+                <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">in May</h2>
+                <div class="calendar" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                    <ul class="week">
+                        <li>일</li>
+                        <li>월</li>
+                        <li>화</li>
+                        <li>수</li>
+                        <li>목</li>
+                        <li>금</li>
+                        <li>토</li>
+                    </ul>
+                    <ul class="day">
+                        <li class="prev"><p>28</p></li>
+                        <li class="prev"><p>29</p></li>
+                        <li class="prev"><p>30</p></li>
+                        <li><p>1</p></li>
+                        <li><p>2</p></li>
+                        <li><p>3</p></li>
+                        <li><p>4</p></li>
+                        <li><p>5</p></li>
+                        <li><p>6</p></li>
+                        <li><p>7</p></li>
+                        <li><p>8</p></li>
+                        <li><p>9</p></li>
+                        <li><p>10</p></li>
+                        <li><p>11</p></li>
+                        <li><p>12</p></li>
+                        <li><p>13</p></li>
+                        <li><p>14</p></li>
+                        <li><p>15</p></li>
+                        <li><p>16</p></li>
+                        <li><p>17</p></li>
+                        <li class="point"><p>18</p></li>
+                        <li><p>19</p></li>
+                        <li><p>20</p></li>
+                        <li><p>21</p></li>
+                        <li><p>22</p></li>
+                        <li><p>23</p></li>
+                        <li><p>24</p></li>
+                        <li><p>25</p></li>
+                        <li><p>26</p></li>
+                        <li><p>27</p></li>
+                        <li><p>28</p></li>
+                        <li><p>29</p></li>
+                        <li><p>30</p></li>
+                        <li><p>31</p></li>
+                        <li class="next"><p>1</p></li>
+                    </ul>
+                </div>
+                <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">
+                    2024년 5월 18일 토요일 오후 1시 20분<br/>규태 ♡ 보영 진짜 부부 되기까지 <span>일</span>
+                </p>
             </div>
             <div class="box">
                 <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-easing="ease-in-out" data-aos-duration="800">to my loved ones</h2>
@@ -170,19 +254,6 @@
                 </div>
             </div>
             <p class="copyright">만든 이. 나규태 최보영</p>
-            <p class="copyright">copyright</p>
-            <div id="toast" class="toast">
-                <p>클립보드에 복사되었습니다.</p>
-            </div>
-            <button class="audio" onclick="togglePlay()">
-                <i className="ic-unmute" />
-<!--                {isPlaying ? <i className="ic-mute" /> : <i className="ic-unmute" />}-->
-            </button>
-            <audio id="audio" controls autoplay>
-                <source src="https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/Ordinary_Confession_s.mp3?alt=media&token=5d45839e-c367-4843-b2f9-22e5bbbe3a14" type="audio/mpeg">
-            </audio>
-
-            <button class="top" onclick="scrollToTop()">UP</button>
         </div>
     </div>
 </body>

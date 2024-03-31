@@ -1,5 +1,5 @@
 /* to embed a font */
-@import url('public/assets/css/font.css');
+@import url('./font.css');
 
 /* document --------------------------- */
 *, *::after, *::before {
@@ -158,3 +158,5 @@ button {width: fit-content; height: 3.4rem; padding: 0; display: flex; align-ite
 .toast.active {bottom: 4.8rem;}
 
 /* audio */
+#silence {display: none;}
+audio {}
