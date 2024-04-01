@@ -128,19 +128,21 @@ $(document).ready(function() {
 
 // copy
 function onCopy(text) {
-    if (/iPhone|iPad|iPod/i.test(userAgent)) {
-        navigator.clipboard.writeText(text).then(() => {
-            var $toast = $('#toast');
+    const userAgent = navigator.userAgent;
 
-            if(!$toast.hasClass('active')) {
+    navigator.clipboard.writeText(text).then(() => {
+        var $toast = $('#toast');
+
+        if (/iPhone|iPad|iPod/i.test(userAgent)) {
+            if (!$toast.hasClass('active')) {
                 $toast.addClass('active');
             }
+        }
 
-            setTimeout(() => {
-                $toast.removeClass('active');
-            }, 1500);
-        });
-    }
+        setTimeout(() => {
+            $toast.removeClass('active');
+        }, 1500);
+    });
 }
 
 // call
