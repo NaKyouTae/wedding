@@ -130,8 +130,6 @@ $(document).ready(function() {
 function onCopy(text) {
     const userAgent = navigator.userAgent;
 
-    alert(userAgent);
-
     navigator.clipboard.writeText(text).then(() => {
         var $toast = $('#toast');
 
