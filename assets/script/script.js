@@ -62,6 +62,47 @@ $(document).ready(function() {
         $('.top').css({'transform': `rotate(${rotation}deg)`});
     });
 
+    let isExecuted = false;
+
+    $(window).scroll(function() {
+        const animateValue = (obj, start, duration) => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const today = new Date();
+                const targetDate = new Date('2024-05-18');
+                const diffTime = Math.abs(targetDate - today);
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                obj.innerHTML = `${Math.floor(progress * (diffDays - start) + start)}일`;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        const obj = document.getElementById("countTarget");
+        const rect = obj.getBoundingClientRect();
+        const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
+
+        // 한 번만 실행되도록 처리
+        if (isInView) {
+            if(!isExecuted) {
+                // 실행할 코드 작성
+                animateValue(obj, 0, 3000);
+
+                // 한 번 실행되었음을 상태로 표시
+                isExecuted = true;
+            }
+        } else {
+            if(isExecuted) {
+                isExecuted = false;
+            }
+        }
+    });
+
     // scroll top
     $('.top').click(function(){
 		window.scrollTo({
