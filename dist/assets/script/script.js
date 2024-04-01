@@ -117,10 +117,10 @@ $(document).ready(function() {
 
         if (audio.paused) {
             audio.play();
-            $('.audio .ic-unmute').css('background-image', 'url(/dist/assets/img/ico/ic-unmute.svg)');
+            $('.audio .ic-unmute').css('background-image', 'url(/assets/img/ico/ic-unmute.svg)');
         } else {
             audio.pause();
-            $('.audio .ic-unmute').css('background-image', 'url(/dist/assets/img/ico/ic-mute.svg)');
+            $('.audio .ic-unmute').css('background-image', 'url(/assets/img/ico/ic-mute.svg)');
         }
     });
 
