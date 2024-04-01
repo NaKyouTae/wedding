@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    AOS.init();
+    window.AOS.init();
+    window.Kakao.init('5a6eb9e30f5c017444702a8e4e9afb70');
+    window.Kakao.isInitialized();
 
     // console draw
     const initDraw = `
@@ -27,7 +29,7 @@ $(document).ready(function() {
 
     // floating button
     let lastScrollY = 0;
-    
+
     $(window).scroll(function() {
         const bottomPosition = $(document).height() - $(window).height();
         const visible = $(window).scrollTop() > 300; // 버튼을 300px 아래에서 보이게 하기 위한 조건
@@ -96,7 +98,7 @@ function onCopy(text) {
             $toast.removeClass('active');
         }, 1500);
     });
-}    
+}
 
 // call
 function onCall(number) {
@@ -113,3 +115,36 @@ function clickTo(url) {
     window.open(url);
 }
 
+function onShareKakao() {
+    window.Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+            title: '나규태 ♡ 최보영 결혼합니다.',
+            imageUrl: ' https://firebasestorage.googleapis.com/v0/b/wedding-9b3cb.appspot.com/o/thumbnail01.png?alt=media&token=68a706bb-fb80-44f9-beb6-4f11d940abaf', // 메인 이미지
+            description: '5/18(토) 13:20 루이비스 중구',
+            link: {
+                mobileWebUrl: 'https://저희결혼합니다.com',
+            },
+        },
+        buttons: [
+            {
+                title: '청첩장으로 이동',
+                link: {
+                    mobileWebUrl: 'https://저희결혼합니다.com',
+                },
+            },
+        ],
+    });
+}
+
+function clickToKakao() {
+    const y = 37.5605777;
+    const x = 126.9673387;
+
+    window.Kakao.Navi.start({
+        name: '루이비스 웨딩 중구점',
+        x,
+        y,
+        coordType: 'wgs84',
+    })
+};
