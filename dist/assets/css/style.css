@@ -71,7 +71,7 @@
 .traffic > li p > br {display: none;}
 .traffic > li ul > li {font-size: 1.5rem; line-height: 1.8; word-break: keep-all;}
 .traffic > li .shuttle {flex: initial; width: calc(100% - 8rem); display: flex; column-gap: .8rem; margin-left: auto; margin-top: .8rem;}
-.traffic > li .shuttle > a {width: calc((100% - .8rem) / 2); height: 2.8rem; padding: 0 1.6rem; display: flex; align-items: center; justify-content: center; column-gap: .8rem; background-color: var(--gray01); border: 1px solid #ededed; border-radius: .2rem; font-size: 1.4rem; font-weight: 500; white-space: nowrap;}
+.traffic > li .shuttle > a {width: calc((100% - .8rem) / 2); height: 2.8rem; padding: 0 1.6rem; display: flex; align-items: center; justify-content: center; column-gap: .8rem; background-color: var(--gray01); border: 1px solid #ededed; border-radius: .2rem; font-size: 1.4rem; font-weight: 500; white-space: nowrap; font-family: 'Pretendard';}
 
 /* contact */
 .contact {display: flex; flex-flow: column; row-gap: 4rem;}
