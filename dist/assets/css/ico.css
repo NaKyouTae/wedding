@@ -14,3 +14,9 @@ i {display: flex; align-items: center; justify-content: center; background-repea
 
 .ic-mute {width: 2rem; height: 2rem; background-image: url(../img/ico/ic-mute.svg);}
 .ic-unmute {width: 2rem; height: 2rem; background-image: url(../img/ico/ic-unmute.svg);}
+
+.ic-groom {width: 2.6rem; height: 2.6rem; background-image: url(../img/ico/ic-groom.png);}
+.ic-bride {width: 2.6rem; height: 2.6rem; background-image: url(../img/ico/ic-bride.png);}
+
+.ic-pigeon {width: 2.6rem; height: 2.6rem; background-image: url(../img/ico/ic-pigeon.png);}
+.ic-heart {width: 2.6rem; height: 2.6rem; background-image: url(../img/ico/ic-heart.png);}
